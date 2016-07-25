@@ -2,17 +2,35 @@
 
 <div>
   <form action="/postings/new" method="post">
-    <label for="item_name">Item name</label>
-    <input id="item_name" name="item_name" type="text">
+    <label for="description">Item name</label>
+    <input id="description" name="description" type="text">
     <br>
     <label for="quantity">Quantity</label>
     <input id="quantity" name="quantity" type="text">
     <br>
-
-    #Input drop-down form of category (dairy, meat, veggie, etc)
-    #Input drop-down form of poster type (individual, restaurant, brewery, etc)
-    #Input drop-down form of location by neighborhood (Lloyd, Pearl, Sellwood, etc)
-
+    <label for="category">Category</label>
+    <select id="category_id" name="category_id" type="text">
+    </select>
+    <br>
+    <label for="source_type">Source Type</label>
+    <select id="source_type" name="source_type" type="text">
+      <option>Individual</option>
+      <option>Restaurant</option>
+      <option>Brewery</option>
+      <option>Farm</option>
+      <option>General Food Business</option>
+      <option>Grocery Store</option>
+      <option>Non-Profit</option>
+    </select>
+    <br>
+    <label for="location">Neighborhood</label>
+    <select id="location" name="location" type="text">
+      <option>North Portland</option>
+      <option>Northwest Portland</option>
+      <option>Southwest Portland</option>
+      <option>Northeast Portland</option>
+      <option>Southeast Portland</option>
+    </select>
     <button type="submit">Add</button>
   </form>
 
