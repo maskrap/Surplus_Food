@@ -33,11 +33,6 @@ ActiveRecord::Schema.define(version: 20160725184717) do
     t.integer  "user_id"
   end
 
-  create_table "messages_users", id: false, force: :cascade do |t|
-    t.integer "message_id", null: false
-    t.integer "user_id",    null: false
-  end
-
   create_table "postings", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "description"

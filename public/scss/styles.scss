@@ -1,0 +1,36 @@
+$nav-color:#500A0D;
+$lt-text:white;
+.header{
+  background-image: url(../image/pasta.jpg);
+  background-repeat: no-repeat;
+  height:400px;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content: space-between;
+  color:$lt-text;
+}
+
+.nav{
+  background-color: $nav-color;
+  display:flex;
+  justify-content:flex-end;
+}
+
+.nav2{
+    background-color: $nav-color;
+    display:flex;
+    justify-content:space-around;
+}
+
+
+li{
+  display:inline;
+  justify-content:flex-end;
+  padding:20px;
+}
+
+#add-post{
+  width:10%;
+
+}

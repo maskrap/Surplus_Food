@@ -32,3 +32,7 @@ end
 get '/postings/new' do
   erb :posting_form
 end
+
+get '/' do
+  erb :index
+end
