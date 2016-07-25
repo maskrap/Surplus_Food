@@ -15,6 +15,7 @@
 * As a user, I want to be able to share listings via social media. 
 * As a user, I want to be able to send messages to food listers to set up a pick up location and time.
 * As a user, I want to be able to receive messages from people who are interested in picking up my food.
+* As a user, I want to be able to have a map that geolocates products listed.
 
 
 ## Specifications
