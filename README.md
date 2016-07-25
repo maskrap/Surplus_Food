@@ -1,6 +1,6 @@
 # _Surplus Food Exchange (PDXEX?)_
 
-#### **By Amber, Nikki, Leah Nelson, Cory Olson, Sam Park, Matt Wilkin**
+#### **By Amber Baird, Nikki Garner, Leah Nelson, Cory Olson, Sam Park, Matt Wilkin**
 
 ## Objectives
 
@@ -12,7 +12,7 @@
 * As a user, I want to be able to see all of the foods available on the exchange.
 * As a user, I want food names and locations to be saved with a capital letter no matter how I enter them.
 * As a user, I do not want foods to be saved if I enter a blank name.
-* As a user, I want to be able to share listings via social media. 
+* As a user, I want to be able to share listings via social media.
 * As a user, I want to be able to send messages to food listers to set up a pick up location and time.
 * As a user, I want to be able to receive messages from people who are interested in picking up my food.
 * As a user, I want to be able to have a map that geolocates products listed.
@@ -47,4 +47,4 @@ See spec folder
 
 This software is licensed under the MIT License and the **_Mind Your Own Beeswax license._**
 
-Copyright &copy; 2016 Amber, Nikki, Leah Nelson, Cory Olson, Sam Park, Matt Wilkin
+Copyright &copy; 2016 Amber Baird, Nikki Garner, Leah Nelson, Cory Olson, Sam Park, Matt Wilkin
