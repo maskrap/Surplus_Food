@@ -2,15 +2,22 @@
 
 <div>
   <form action="/postings/new" method="post">
+
     <label for="description">Item name</label>
     <input id="description" name="description" type="text">
     <br>
-    <label for="quantity">Quantity</label>
-    <input id="quantity" name="quantity" type="text">
+    <% if @categories.any? %>
+      <label for="category_id">Select a Category</label>
+      <select id='category_id' name='category_id' type='text'>
+        <option></option>
+        <% @categories.each { |category| %>
+          <option value="<%= category.id %>"> <%= category.name %></option>
+        <% } %>
+      </select>
+    <% end %>
     <br>
-    <label for="category">Category</label>
-    <select id="category_id" name="category_id" type="text">
-    </select>
+    <label for="category_name">Category Name</label>
+    <input id="category_name" name="category_name" type="text" placeholder="Dairy, Meat, Fruit, etc">
     <br>
     <label for="source_type">Source Type</label>
     <select id="source_type" name="source_type" type="text">
@@ -23,7 +30,10 @@
       <option>Non-Profit</option>
     </select>
     <br>
-    <label for="location">Neighborhood</label>
+    <label for="quantity">Quantity</label>
+    <input id="quantity" name="quantity" type="text" placeholder="Serving size, grams, bunches, cups, etc">
+    <br>
+    <label for="location">Location</label>
     <select id="location" name="location" type="text">
       <option>North Portland</option>
       <option>Northwest Portland</option>
@@ -31,6 +41,12 @@
       <option>Northeast Portland</option>
       <option>Southeast Portland</option>
     </select>
+    <br>
+    <label for="city">City</label>
+    <select id="city" name="city" type="text">
+      <option>Portland</option>
+    </select>
+    <br>
     <button type="submit">Add</button>
   </form>
 

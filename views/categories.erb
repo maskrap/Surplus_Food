@@ -1,0 +1,12 @@
+<h1>Categories</h1>
+
+<% if @categories.any? %>
+  <ul>
+    <% @categories.each { |category| %>
+      <li><a href='/categories/<%= category.id %>'><%= category.name %></a></li>
+    <% } %>
+  </ul>
+  <% else %>
+    <p>There are currently no categories<p>
+  <% end %>
+<a href="/">Home</a>
