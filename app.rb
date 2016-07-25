@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ENV['RACK_ENV'] = 'development'
 require("bundler/setup")
 
@@ -26,4 +27,12 @@ end
 
 before do
   @user = session[:user_id] ? User.find(session[:user_id]) : nil
+=======
+require "bundler/setup"
+Bundler.require :default
+Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
+
+get '/postings/new' do
+  erb(:posting_form.erb)
+>>>>>>> eacf8c5ee8c4e21f69b608dfd988ee36e58aa0fb
 end

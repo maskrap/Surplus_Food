@@ -15,6 +15,15 @@ ActiveRecord::Schema.define(version: 20160725184717) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "categories_postings", force: :cascade do |t|
+    t.integer "category_id"
+    t.string  "posting_id"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.string   "subject"
     t.string   "body"
@@ -27,6 +36,16 @@ ActiveRecord::Schema.define(version: 20160725184717) do
   create_table "messages_users", id: false, force: :cascade do |t|
     t.integer "message_id", null: false
     t.integer "user_id",    null: false
+  end
+
+  create_table "postings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "description"
+    t.string   "source_type"
+    t.integer  "quantity"
+    t.string   "location"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
