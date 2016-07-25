@@ -51,13 +51,23 @@ post '/postings/new' do
   quantity = params['quantity']
   location = params['location']
   @posting = Posting.create({user_id: user_id, description: description, source_type: source_type, quantity: quantity, location: location})
-  selected_category = Category.find(params['category_id'].to_i)
   form_category = params['category_name']
   category = Category.create({name: form_category})
-  if selected_category != nil
+  if params['category_id'].to_i != nil && params['category_id'].to_i != 0
+    selected_category = Category.find(params['category_id'].to_i)
     @posting.categories.push(selected_category)
   else
     @posting.categories.push(category)
   end
   redirect '/postings'
+end
+
+get '/search/alphabetically' do
+  @postings = Posting.order(description: :asc)
+  erb :search_results
+end
+
+get '/search/category' do
+  @categories = Category.all
+  erb :catewgories
 end

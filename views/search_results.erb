@@ -1,5 +1,19 @@
-<div>
+<% if @postings.any? %>
+  <ul>
+    <% @postings.each { |posting| %>
+      <li><%= posting.description %>
+        <br>
+        <% posting.categories.each { |category| %>
+          <%= category.name %>
+          <% } %>
+        <br>
+        <%= posting.source_type %>
+        <br>
+        <%= posting.quantity %>
+        <br>
+        <%= posting.location %></li>
+    <% } %>
+  </ul>
+<% end %>
 
-  <hr>
-  <span class="navigation"><a href="/">Home</a></span>
-</div>
+<a href="/">Home</a>

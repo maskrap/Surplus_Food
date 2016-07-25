@@ -9,6 +9,7 @@
     <% if @categories.any? %>
       <label for="category_id">Select a Category</label>
       <select id='category_id' name='category_id' type='text'>
+        <option></option>
         <% @categories.each { |category| %>
           <option value="<%= category.id %>"> <%= category.name %></option>
         <% } %>
