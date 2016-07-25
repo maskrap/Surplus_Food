@@ -1,8 +1,8 @@
 ENV['RACK_ENV'] = 'test'
-
 require 'bundler/setup'
 Bundler.require(:default, :test)
 set(:root, Dir.pwd())
+
 Dir[File.dirname(__FILE__) + '/../lib/*.rb'].each { |file| require file }
 
 require 'capybara/rspec'
@@ -19,6 +19,10 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
+Sinatra::Application.configure do | app |
+  app.use RackSessionAccess::Middleware
+end
+
 RSpec.configure { |config|
   config.after(:each) {
     Posting.all.each { |posting|
@@ -27,5 +31,12 @@ RSpec.configure { |config|
     Category.all.each { |category|
       category.destroy
     }
+    User.all().each do | item |
+      item.destroy()
+    end
+
+    Message.all().each do | item |
+      item.destroy()
+    end
   }
 }
