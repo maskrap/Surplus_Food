@@ -25,21 +25,19 @@
       <input id="search" type="text" name="Search" placeholder="Search" value="">
       <div class="nav2">
         <div class="navbar2">
-          <ul>
-            <li>Produce</li>
-            <li>Meat/Dairy</li>
-            <li>Dry Goods</li>
-            <li>Frozen</li>
-            <li>All</li>
-          </ul>
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Search by:<span class="caret"></span></button>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                <li role="presentation"><a role="menuitem" href="/search/alphabetically/ascending">Postings listed alphabetically: ascending</a></li>
+                <li role="presentation"><a href="/search/alphabetically/descending">Postings listed alphabetically: descending</a></li>
+                <li role="presentation"><a href="/search/category">Category</a></li>
+                <li role="presentation"><a href="/search/locations">Location</a></li>
+            </ul>
+          </div>
+          <!-- <button id="add-post" type="button" class="btn btn-secondary">Post</button> -->
         </div>
-        <button id="add-post" type="button"class="btn btn-secondary">ADD POST</button>
       </div>
     </div>
-
-
-
-
     <% if flash[:notice] %>
       <div class="alert alert-danger">
         <%= flash[:notice] %>
@@ -53,5 +51,7 @@
       <p>Session ID: <%= session[:user_id] %></p>
       <% end %>
     </div>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </body>
 </html>
