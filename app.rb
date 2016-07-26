@@ -38,12 +38,17 @@ get '/postings' do
   erb :postings
 end
 
-get '/postings/new' do
+get '/new' do
   @categories = Category.all
   erb :posting_form
 end
 
-post '/postings/new' do
+get '/postings/:id' do
+  @posting = Posting.find(params["id"].to_i)
+  erb :posting
+end
+
+post '/postings/form' do
   categories = Category.all
   user_id = session[:user_id]
   description = params['description']
@@ -62,14 +67,33 @@ post '/postings/new' do
   redirect '/postings'
 end
 
-get '/search/alphabetically' do
+get '/search' do
+  @postings = Posting.all
+  erb :search
+end
+
+get '/search/alphabetically/ascending' do
   @postings = Posting.order(description: :asc)
+  @order = "descending"
+  erb :search_results
+end
+
+get '/search/alphabetically/descending' do
+  @postings = Posting.order(description: :desc)
+  @order = "ascending"
   erb :search_results
 end
 
 get '/search/category' do
   @categories = Category.all
-  erb :catewgories
+  @postings = Posting.all
+  erb :categories
+end
+
+get '/search/locations' do
+  @locations = ["North Portland", "Northeast Portland", "Northwest Portland", "Southeast Portland", "Southwest Portland"]
+  @postings = Posting.all
+  erb :locations
 end
 
 get '/login' do
