@@ -1,0 +1,165 @@
+
+
+$nav-color:#500A0D;
+$lt-text:white;
+
+
+body{
+  background-color:#e7e5df;
+
+}
+.header{
+  background-image: url(../img/pasta.jpg);
+  background-repeat: no-repeat;
+  height:500px;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content: space-between;
+  color:$lt-text;
+    h1,h2{
+      display:flex;
+      justify-content:center;
+      align-items: center;
+      font-size: 7em;
+      font-family:'glaresome'
+    }
+    #search {
+      display: flex;
+      justify-content: center;
+      align-self: center;
+      width: 50%;
+      border-radius: 5px;
+      opacity: .5;
+
+    }
+}
+
+@font-face{
+  font-family: 'glaresome';
+  src:url("../fonts/GLARESOMEregular.otf");
+}
+
+.navbar, .navbar2{
+  margin:0;
+  font-family: 'Raleway', sans-serif;
+
+}
+.nav{
+  background-color: $nav-color;
+  display:flex;
+  justify-content:flex-end;
+  padding-top: 2%;
+  box-shadow:  5px 5px 5px black;
+}
+
+.nav2{
+  background-color: $nav-color;
+  display:flex;
+  justify-content:space-around;
+  padding-top: 1%;
+
+}
+
+
+li{
+  display:inline;
+  justify-content:flex-end;
+  padding-right:20px;
+}
+
+#add-post{
+  width:10%;
+  height: 10%;
+  border-radius: 90px;
+  margin-bottom:1%;
+  background-color:#ffb547;
+}
+
+.content{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  font-family: 'Raleway', sans-serif;
+  %box {
+    border-radius: 5px;
+    width: 200px;
+    height: 200px;
+    margin-top: 30px;
+    text-align: center;
+    box-shadow: 0 2px 4px;
+    transition: all 0.2s ease-in-out;
+  }
+  .produce {
+    @extend %box;
+    background: url('../img/strawberries.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    h2, h3 {
+      display: none;
+    }
+    &:hover {
+      cursor:pointer;
+      opacity: .8;
+      h2, h3 {
+      display: block;
+      color: orange;
+      }
+    }
+  }
+
+  .meat {
+    @extend %box;
+    background: url('../img/cheese.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    h2, h3 {
+      display: none;
+    }
+    &:hover {
+      cursor:pointer;
+      h2, h3 {
+      display: block;
+      color: orange;
+      }
+      opacity: .8;
+    }
+
+  }
+  .dry {
+    @extend %box;
+    background:url('../img/bread.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    h2, h3 {
+      display: none;
+    }
+    &:hover {
+      cursor:pointer;
+      opacity: .9;
+      h2, h3 {
+      display: block;
+      color: orange;
+      }
+    }
+  }
+  .frozen{
+    @extend %box;
+    background:url('../img/icecream.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    h2, h3 {
+      display: none;
+    }
+    &:hover {
+      cursor:pointer;
+      opacity: .8;
+      h2, h3 {
+      display: block;
+      color: orange;
+      }
+    }
+  }
+}

@@ -31,7 +31,10 @@ ActiveRecord::Schema.define(version: 20160726140404) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+<<<<<<< HEAD
+=======
     t.integer  "posting_id"
+>>>>>>> master
   end
 
   create_table "postings", force: :cascade do |t|

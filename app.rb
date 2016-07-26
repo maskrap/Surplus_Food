@@ -32,6 +32,17 @@ get '/' do
   erb :index
 end
 
+get '/aboutus' do
+  erb :aboutus
+end
+get '/foodwaste' do
+  erb :foodwaste
+end
+
+get '/what_can_you_do' do
+  erb :what_can_you_do
+end
+
 get '/postings' do
   @postings = Posting.all
   @categories = Category.all

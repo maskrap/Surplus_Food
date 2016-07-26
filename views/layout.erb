@@ -3,20 +3,48 @@
   <head>
     <meta charset="utf-8">
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link rel="stylesheet" href="/css/styles.css" type="text/css">
     <title>PDX Food Collaborative</title>
   </head>
   <body>
+    <div class="header">
+      <div class="nav">
+        <img src="" alt="" />
+        <div class="navbar">
+          <ul>
+            <li><a href="/aboutus">About Us</a></li>
+            <li><a href="/users">Account</a></li>
+            <li><a href="/inbox">Inbox</a></li>
+            <li><% if session[:user_id] %><a href="/logout">Logout</a><% else %><a href="/login">Login</a><% end %></li>
+          </ul>
+        </div>
+      </div>
+      <h1>Share your excess</h1>
+      <h2>Waste less</h2>
+      <input id="search" type="text" name="Search" placeholder="Search" value="">
+      <div class="nav2">
+        <div class="navbar2">
+          <ul>
+            <li>Produce</li>
+            <li>Meat/Dairy</li>
+            <li>Dry Goods</li>
+            <li>Frozen</li>
+            <li>All</li>
+          </ul>
+        </div>
+        <button id="add-post" type="button"class="btn btn-secondary">ADD POST</button>
+      </div>
+    </div>
+
+
+
+
     <% if flash[:notice] %>
       <div class="alert alert-danger">
         <%= flash[:notice] %>
       </div>
     <% end %>
-    <span class="navigation">
-      <a href="/">Home</a> |
-      <% if session[:user_id] %><a href="/logout">logout</a> | <% else %><a href="/login">Login</a>|
-       <a href="/signup">Signup</a> |<% end %>
-       <a href="/inbox">inbox</a></span>
     <!-- <div class="container"> -->
       <%= yield %>
     <!-- </div> -->
