@@ -1,4 +1,4 @@
-<h3>In:</h3>
+<h3>Received:</h3>
 <ul>
 <% if @user.messages.received.any? %>
     <% @user.messages.received.each do | message | %>
@@ -9,7 +9,7 @@
 <% end %>
 </ul>
 
-<h3>Out:</h3>
+<h3>Sent:</h3>
 <ul>
 <% if @user.messages.sent.any? %>
   <% @user.messages.sent.each do | message | %>

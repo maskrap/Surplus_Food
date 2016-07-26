@@ -1,17 +1,16 @@
-<%= @posting.description %>
-  <br>
+<h2><%= @posting.description %></h2>
+<hr>
+<h4>Categories:</h4>
   <% @posting.categories.each { |category| %>
     <%= category.name %>
-    <% } %>
-  <br>
-  <%= @posting.source_type %>
-  <br>
-  <%= @posting.quantity %>
-  <br>
-  <%= @posting.location %>
-  <br>
-  User: <%= @posting.user.name %>
-  <br>
+  <% } %>
+<h4>Source Type:</h4> <%= @posting.source_type %>
+<h4>Quantity:</h4> <%= @posting.quantity %>
+<h4>Location:</h4> <%= @posting.location %>
+<h4>User:</h4> <%= @posting.user.name %>
+<hr>
+
+<h3>Contact <%= @posting.user.name %> about this posting</h3>
 <form class="" action="/postings/<%= @posting.id%>/contact" method="post">
 <label for="title">Title</label>
 <input type="text" name="title">
@@ -19,6 +18,7 @@
 <input type="text" name="body">
 <button type="submit" name="button">Send</button>
 </form>
+<hr>
 
 <form action="/postings/<%= @posting.id %>" method="post">
   <input name="_method" type="hidden" value="delete">
