@@ -1,4 +1,4 @@
-# _Surplus Food Exchange (PDXEX?)_
+# _PDX Food Collaborative_
 
 #### **By Amber Baird, Nikki Garner, Leah Nelson, Cory Olson, Sam Park, Matt Wilkin**
 
