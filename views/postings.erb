@@ -11,7 +11,12 @@
         <br>
         <%= posting.quantity %>
         <br>
-        <%= posting.location %></li>
+        <%= posting.location %>
+        <br>
+        User: <%= posting.user.name %>
+        <br>
+        <a href="/postings/<%= posting.id %>">Details</a>
+      </li>
     <% } %>
   </ul>
 <% end %>

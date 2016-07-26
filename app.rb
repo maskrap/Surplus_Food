@@ -38,12 +38,12 @@ get '/postings' do
   erb :postings
 end
 
-get '/postings/new' do
+get '/postings/new', :auth => :user do
   @categories = Category.all
   erb :posting_form
 end
 
-post '/postings/new' do
+post '/postings/new', :auth => :user do
   categories = Category.all
   user_id = session[:user_id]
   description = params['description']
@@ -62,6 +62,17 @@ post '/postings/new' do
   redirect '/postings'
 end
 
+get '/postings/:id' do
+  @posting = Posting.find(params[:id])
+  erb :posting_details
+end
+
+post '/postings/:id/contact', :auth => :user do
+  post = Posting.find(params[:id])
+  new_message = post.messages.create({:subject => params[:title], :body => params[:body]})
+  new_message.send_message(User.find(session[:user_id]), post.user)
+end
+
 get '/search/alphabetically' do
   @postings = Posting.order(description: :asc)
   erb :search_results
@@ -69,7 +80,7 @@ end
 
 get '/search/category' do
   @categories = Category.all
-  erb :catewgories
+  erb :categories
 end
 
 get '/login' do
@@ -98,6 +109,12 @@ get '/users', :auth => :user  do
   erb :user
 end
 
+patch '/users/edit', :auth => :user do
+  user = User.find(session[:user_id])
+  user.update({:password => params[:password]}) if params[:password] == params[:password2]
+  redirect to "/users"
+end
+
 post '/users/new' do
   new_user = User.new(name: params[:email], password: params[:password])
   if new_user.save
@@ -116,7 +133,7 @@ end
 
 get '/inbox/:id', :auth => :user do
   @user = User.find(session[:user_id])
-  @message = @users.messages.find_one(params[:id])
+  @message = @user.messages.find(params[:id])
   erb :message
 end
 
