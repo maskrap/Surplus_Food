@@ -1,5 +1,10 @@
 <div>
 
-  <hr>
-  <span class="navigation"><a href="/">Home</a></span>
+<h1><%= @user.name %></h1>
+<form action="/users/edit" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <input type="password" name="password">
+  <input type="password" name="password_confirm">
+  <button class="btn btn-primary" type="submit" name="button">Update Password</button>
+</form>
 </div>

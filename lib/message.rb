@@ -1,5 +1,6 @@
 class Message < ActiveRecord::Base
-  belongs_to :users
+  belongs_to :user
+  belongs_to :posting
 
   scope :sent, -> { where ({:sent => true}) }
   scope :received, -> { where({:sent => false}) }

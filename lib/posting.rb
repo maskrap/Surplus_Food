@@ -1,5 +1,7 @@
 class Posting < ActiveRecord::Base
   has_and_belongs_to_many :categories
+  belongs_to :user
+  has_many :messages
   before_save :capitalize_description
   validates :description, :source_type, :quantity, :location, :presence => true
 
