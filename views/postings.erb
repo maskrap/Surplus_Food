@@ -12,10 +12,15 @@
         <br>
         Quantity: <%= posting.quantity %>
         <br>
-        Location: <a href="/search/locations"><%= posting.location %></a>
+        Location: <%= posting.location %>
+        <br>
+        User: <%= posting.user.name %>
         <br>
         Created at: <%= posting.created_at %></li>
+        <br>
+        <a href="/postings/<%= posting.id %>">Details</a>
         <hr>
+        </li>
     <% } %>
   </ul>
 <% end %>
