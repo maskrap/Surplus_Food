@@ -29,6 +29,7 @@ before do
 end
 
 get '/' do
+  @page = "home"
   erb :index
 end
 

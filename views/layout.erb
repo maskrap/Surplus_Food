@@ -8,10 +8,10 @@
     <title>PDX Food Collaborative</title>
   </head>
   <body>
-    <div class="header">
-      <div class="nav">
-        <img src="" alt="" />
-        <div class="navbar">
+      <% if @page == "home" %>
+        <%= erb :header %>
+        <% else %>
+        <div class="navbar nav">
           <ul>
             <li><a href="/aboutus">About Us</a></li>
             <li><a href="/users">Account</a></li>
@@ -19,27 +19,8 @@
             <li><% if session[:user_id] %><a href="/logout">Logout</a><% else %><a href="/login">Login</a><% end %></li>
           </ul>
         </div>
-      </div>
-      <h1>Share your excess</h1>
-      <h2>Waste less</h2>
-      <input id="search" type="text" name="Search" placeholder="Search" value="">
-      <div class="nav2">
-        <div class="navbar2">
-          <ul>
-            <li>Produce</li>
-            <li>Meat/Dairy</li>
-            <li>Dry Goods</li>
-            <li>Frozen</li>
-            <li>All</li>
-          </ul>
-        </div>
-        <button id="add-post" type="button"class="btn btn-secondary">ADD POST</button>
-      </div>
+      <% end %>
     </div>
-
-
-
-
     <% if flash[:notice] %>
       <div class="alert alert-danger">
         <%= flash[:notice] %>
