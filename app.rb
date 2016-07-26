@@ -38,12 +38,12 @@ get '/postings' do
   erb :postings
 end
 
-get '/postings/new', :auth => :user do
+get '/new', :auth => :user do
   @categories = Category.all
   erb :posting_form
 end
 
-post '/postings/new', :auth => :user do
+post '/postings/form' do
   categories = Category.all
   user_id = session[:user_id]
   description = params['description']
@@ -73,14 +73,33 @@ post '/postings/:id/contact', :auth => :user do
   new_message.send_message(User.find(session[:user_id]), post.user)
 end
 
-get '/search/alphabetically' do
+get '/search' do
+  @postings = Posting.all
+  erb :search
+end
+
+get '/search/alphabetically/ascending' do
   @postings = Posting.order(description: :asc)
+  @order = "descending"
+  erb :search_results
+end
+
+get '/search/alphabetically/descending' do
+  @postings = Posting.order(description: :desc)
+  @order = "ascending"
   erb :search_results
 end
 
 get '/search/category' do
   @categories = Category.all
+  @postings = Posting.all
   erb :categories
+end
+
+get '/search/locations' do
+  @locations = ["North Portland", "Northeast Portland", "Northwest Portland", "Southeast Portland", "Southwest Portland"]
+  @postings = Posting.all
+  erb :locations
 end
 
 get '/login' do
