@@ -1,12 +1,20 @@
 <h1>Categories</h1>
 
 <% if @categories.any? %>
-  <ul>
-    <% @categories.each { |category| %>
-      <li><a href='/categories/<%= category.id %>'><%= category.name %></a></li>
-    <% } %>
-  </ul>
+  <% @categories.each { |category| %>
+    <h3><%= category.name %></h3>
+      <% @postings.each { |posting| %>
+        <ul>
+          <% if posting.categories.include?(category) %>
+            <li><a href='/postings/<%= posting.id %>'><%= posting.description %></a></li>
+          <% end %>
+        </ul>
+      <% } %>
+  <% } %>
   <% else %>
     <p>There are currently no categories<p>
   <% end %>
+
+<a href='/search'>return to search</a>
+<br>
 <a href="/">Home</a>

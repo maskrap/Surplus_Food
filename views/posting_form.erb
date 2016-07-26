@@ -1,9 +1,9 @@
 <h1>Add a new posting</h1>
 
 <div>
-  <form action="/postings/new" method="post">
+  <form action="/postings/form" method="post">
 
-    <label for="description">Item name</label>
+    <label for="description">Item description</label>
     <input id="description" name="description" type="text">
     <br>
     <% if @categories.any? %>
