@@ -38,14 +38,21 @@ get '/postings' do
   erb :postings
 end
 
-get '/new' do
+get '/new', :auth => :user do
   @categories = Category.all
   erb :posting_form
 end
 
-get '/postings/:id' do
-  @posting = Posting.find(params["id"].to_i)
-  erb :posting
+delete '/postings/:id', :auth => :user do
+  @posting = Posting.find(params["id"])
+  @user = User.find(session[:user_id])
+  if @user == @posting.user_id
+    @posting.delete
+  else
+    flash[:notice] = "Only the original poster may delete the listing."
+    redirect back
+  end
+  redirect :postings
 end
 
 post '/postings/form' do
@@ -56,15 +63,30 @@ post '/postings/form' do
   quantity = params['quantity']
   location = params['location']
   @posting = Posting.create({user_id: user_id, description: description, source_type: source_type, quantity: quantity, location: location})
-  form_category = params['category_name']
-  category = Category.create({name: form_category})
+  form_categories = params['category_name'].split(", ")
   if params['category_id'].to_i != nil && params['category_id'].to_i != 0
     selected_category = Category.find(params['category_id'].to_i)
     @posting.categories.push(selected_category)
+    form_categories.each { |category|
+      @posting.categories.push(Category.create({name: category}))
+    }
   else
-    @posting.categories.push(category)
+    form_categories.each { |category|
+      @posting.categories.push(Category.create({name: category}))
+    }
   end
   redirect '/postings'
+end
+
+get '/postings/:id' do
+  @posting = Posting.find(params[:id])
+  erb :posting_details
+end
+
+post '/postings/:id/contact', :auth => :user do
+  post = Posting.find(params[:id])
+  new_message = post.messages.create({:subject => params[:title], :body => params[:body]})
+  new_message.send_message(User.find(session[:user_id]), post.user)
 end
 
 get '/search' do
@@ -122,6 +144,12 @@ get '/users', :auth => :user  do
   erb :user
 end
 
+patch '/users/edit', :auth => :user do
+  user = User.find(session[:user_id])
+  user.update({:password => params[:password]}) if params[:password] == params[:password2]
+  redirect to "/users"
+end
+
 post '/users/new' do
   new_user = User.new(name: params[:email], password: params[:password])
   if new_user.save
@@ -140,7 +168,7 @@ end
 
 get '/inbox/:id', :auth => :user do
   @user = User.find(session[:user_id])
-  @message = @users.messages.find_one(params[:id])
+  @message = @user.messages.find(params[:id])
   erb :message
 end
 

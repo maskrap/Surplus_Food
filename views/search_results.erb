@@ -3,16 +3,10 @@
   <ul>
     <% @postings.each { |posting| %>
       <li><a href="/postings/<%= posting.id %>"><strong><%= posting.description %></strong></a>
+        (<%= posting.quantity %>)
         <br>
-        <% posting.categories.each { |category| %>
-          <%= category.name %>
-          <% } %>
+        <%= posting.location %>
         <br>
-        <%= posting.source_type %>
-        <br>
-        <%= posting.quantity %>
-        <br>
-        <%= posting.location %></li>
         Created at: <%= posting.created_at %></li>
         <hr>
     <% } %>
