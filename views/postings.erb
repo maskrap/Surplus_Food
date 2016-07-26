@@ -5,7 +5,7 @@
       <li><a href="/postings/<%= posting.id %>"><strong><%= posting.description %></strong></a>
         <br>
         Categories: <% posting.categories.each { |category| %>
-          <a href="/search/category"><%= category.name %></a>
+          <a href="/search/category#<%= category.id %>"><%= category.name %></a>
           <% } %>
         <br>
         Source Type: <%= posting.source_type %>
