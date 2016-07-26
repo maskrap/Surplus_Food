@@ -46,8 +46,9 @@ end
 delete '/postings/:id', :auth => :user do
   @posting = Posting.find(params["id"])
   @user = User.find(session[:user_id])
-  if @user == @posting.user_id
+  if @user == @posting.user
     @posting.delete
+    Category.all.each { |category| category.postings.destroy(@posting) }
   else
     flash[:notice] = "Only the original poster may delete the listing."
     redirect back
@@ -55,8 +56,7 @@ delete '/postings/:id', :auth => :user do
   redirect :postings
 end
 
-post '/postings/form' do
-  @categories = Category.all
+post '/postings/form', :auth => :user do
   user_id = session[:user_id]
   description = params['description']
   source_type = params['source_type']
