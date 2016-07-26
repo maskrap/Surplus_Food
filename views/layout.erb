@@ -4,9 +4,14 @@
     <meta charset="utf-8">
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
     <link rel="stylesheet" href="/css/styles.css" type="text/css">
-    <title>Portland Abundant Food Collaborative</title>
+    <title>PDX Food Collaborative</title>
   </head>
   <body>
+    <% if flash[:notice] %>
+      <div class="alert alert-danger">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
     <span class="navigation">
       <a href="/">Home</a> |
       <% if session[:user_id] %><a href="/logout">logout</a> | <% else %><a href="/login">Login</a>|

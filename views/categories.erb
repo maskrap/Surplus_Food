@@ -6,7 +6,7 @@
       <% @postings.each { |posting| %>
         <ul>
           <% if posting.categories.include?(category) %>
-            <li><a href='/postings/<%= posting.id %>'><%= posting.description %></a></li>
+            <li><a href='/postings/<%= posting.id %>'><%= posting.description %></a> (<%= posting.quantity %>)</li>
           <% end %>
         </ul>
       <% } %>

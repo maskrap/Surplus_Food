@@ -1,6 +1,11 @@
 <div>
   <%= @posting.description %>
 
+  <form action="/postings/<%= @posting.id %>" method="post">
+    <input name="_method" type="hidden" value="delete">
+    <button type="submit">Delete Posting</button>
+  </form>
+
   <hr>
   <span class="navigation"><a href="/">Home</a></span>
 </div>

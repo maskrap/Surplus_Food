@@ -48,6 +48,18 @@ get '/postings/:id' do
   erb :posting
 end
 
+delete '/postings/:id', :auth => :user do
+  @posting = Posting.find(params["id"])
+  @user = User.find(session[:user_id])
+  if @user == @posting.user_id
+    @posting.delete
+  else
+    flash[:notice] = "Only the original poster may delete the listing."
+    redirect back
+  end
+  redirect :postings
+end
+
 post '/postings/form' do
   categories = Category.all
   user_id = session[:user_id]
@@ -56,13 +68,17 @@ post '/postings/form' do
   quantity = params['quantity']
   location = params['location']
   @posting = Posting.create({user_id: user_id, description: description, source_type: source_type, quantity: quantity, location: location})
-  form_category = params['category_name']
-  category = Category.create({name: form_category})
+  form_categories = params['category_name'].split(", ")
   if params['category_id'].to_i != nil && params['category_id'].to_i != 0
     selected_category = Category.find(params['category_id'].to_i)
     @posting.categories.push(selected_category)
+    form_categories.each { |category|
+      @posting.categories.push(Category.create({name: category}))
+    }
   else
-    @posting.categories.push(category)
+    form_categories.each { |category|
+      @posting.categories.push(Category.create({name: category}))
+    }
   end
   redirect '/postings'
 end
