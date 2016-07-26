@@ -7,11 +7,18 @@
     <title>Portland Abundant Food Collaborative</title>
   </head>
   <body>
-    <% if session[:user_id] %>
-     <h1><%= session[:user_id] %></h1>
-    <% end %>
+    <span class="navigation">
+      <a href="/">Home</a> |
+      <% if session[:user_id] %><a href="/logout">logout</a> | <% else %><a href="/login">Login</a>|
+       <a href="/signup">Signup</a> |<% end %>
+       <a href="/inbox">inbox</a></span>
     <!-- <div class="container"> -->
       <%= yield %>
     <!-- </div> -->
+    <div class="alert alert-warning"> <h4>Debug:</h4>
+      <% if session[:user_id] %>
+      <p>Session ID: <%= session[:user_id] %></p>
+      <% end %>
+    </div>
   </body>
 </html>

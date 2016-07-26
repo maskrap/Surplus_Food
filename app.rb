@@ -60,7 +60,7 @@ end
 
 get '/users', :auth => :user  do
   @user = User.find(session[:user_id])
-
+  erb :user
 end
 
 post '/users/new' do
@@ -74,12 +74,12 @@ post '/users/new' do
   end
 end
 
-get '/inboxes', :auth => :user do
+get '/inbox', :auth => :user do
   @user = User.find(session[:user_id])
   erb :inbox
 end
 
-get '/inboxes/:id', :auth => :user do
+get '/inbox/:id', :auth => :user do
   @user = User.find(session[:user_id])
   @message = @users.messages.find_one(params[:id])
   erb :message

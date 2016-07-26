@@ -1,9 +1,9 @@
+<ul>
 <% if @user.messages.any? %>
-  <ul>
     <% @user.messages.each do | message | %>
     <li><a href="/inbox/<%= message.id %>"><%= message.subject %></a></li>
     <% end %>
-    <% else %>
-  <li>No messages found....</li>
-  </ul>
+<% else %>
+    <li>No messages found....</li>
 <% end %>
+</ul>
