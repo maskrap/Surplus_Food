@@ -3,7 +3,7 @@
   <% @postings.each { |posting| %>
     <ul>
       <% if posting.location == location %>
-        <li><a href="/postings/<%= posting.id %>"><%= posting.description %></a></li>
+        <li><a href="/postings/<%= posting.id %>"><%= posting.description %></a> (quantity: <%= posting.quantity %>)</li>
         <% end %>
     </ul>
   <% } %>

@@ -57,8 +57,9 @@ end
 delete '/postings/:id', :auth => :user do
   @posting = Posting.find(params["id"])
   @user = User.find(session[:user_id])
-  if @user == @posting.user_id
+  if @user == @posting.user
     @posting.delete
+    Category.all.each { |category| category.postings.destroy(@posting) }
   else
     flash[:notice] = "Only the original poster may delete the listing."
     redirect back
@@ -66,8 +67,7 @@ delete '/postings/:id', :auth => :user do
   redirect :postings
 end
 
-post '/postings/form' do
-  categories = Category.all
+post '/postings/form', :auth => :user do
   user_id = session[:user_id]
   description = params['description']
   source_type = params['source_type']
@@ -75,17 +75,14 @@ post '/postings/form' do
   location = params['location']
   @posting = Posting.create({user_id: user_id, description: description, source_type: source_type, quantity: quantity, location: location})
   form_categories = params['category_name'].split(", ")
-  if params['category_id'].to_i != nil && params['category_id'].to_i != 0
-    selected_category = Category.find(params['category_id'].to_i)
-    @posting.categories.push(selected_category)
-    form_categories.each { |category|
-      @posting.categories.push(Category.create({name: category}))
-    }
-  else
-    form_categories.each { |category|
-      @posting.categories.push(Category.create({name: category}))
-    }
-  end
+  form_categories.each { |category|
+    new_cat = Category.create({name: category})
+    if new_cat.save
+      @posting.categories.push(new_cat)
+    else
+      @posting.categories.push(Category.where(name: category))
+    end
+  }
   redirect '/postings'
 end
 
