@@ -3,7 +3,14 @@
     <img src="" alt="" />
     <div class="navbar">
       <ul>
-        <li><a href="/aboutus">About Us</a></li>
+        <li><div class="dropdown">
+          <button class="dropbtn">About Us</button>
+          <div class="dropdown-content">
+            <a href="/aboutus">Who We Are</a>
+            <a href="/foodwaste">Food Waste</a>
+            <a href="/what_you_can_do">What You Can Do</a>
+          </div>
+        </div></li>
         <li><a href="/users">Account</a></li>
         <li><a href="/inbox">Inbox</a></li>
         <li><% if session[:user_id] %><a href="/logout">Logout</a><% else %><a href="/login">Login</a><% end %></li>
@@ -11,8 +18,8 @@
     </div>
   </div>
 
-<h1>Share your excess</h1>
-<h2>Waste less</h2>
+<h1>PDX</h1>
+<h2>Food Collective</h2>
 <input id="search" type="text" name="Search" placeholder="Search" value="">
 <div class="nav2">
   <div class="navbar2">

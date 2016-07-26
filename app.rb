@@ -40,8 +40,8 @@ get '/foodwaste' do
   erb :foodwaste
 end
 
-get '/what_can_you_do' do
-  erb :what_can_you_do
+get '/what_you_can_do' do
+  erb :what_you_can_do
 end
 
 get '/postings' do
