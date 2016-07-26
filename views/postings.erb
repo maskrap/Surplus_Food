@@ -1,7 +1,8 @@
+<h3>All postings</h3>
 <% if @postings.any? %>
   <ul>
     <% @postings.each { |posting| %>
-      <li><%= posting.description %>
+      <li><a href="/postings/<%= posting.id %>"><strong><%= posting.description %></strong></a>
         <br>
         <% posting.categories.each { |category| %>
           <%= category.name %>
@@ -12,6 +13,8 @@
         <%= posting.quantity %>
         <br>
         <%= posting.location %></li>
+        Created at: <%= posting.created_at %></li>
+        <hr>
     <% } %>
   </ul>
 <% end %>

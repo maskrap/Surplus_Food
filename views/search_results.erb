@@ -1,7 +1,8 @@
+<h5><a href="/search/alphabetically/<%= @order %>"><%= @order %></a></h5>
 <% if @postings.any? %>
   <ul>
     <% @postings.each { |posting| %>
-      <li><%= posting.description %>
+      <li><a href="/postings/<%= posting.id %>"><strong><%= posting.description %></strong></a>
         <br>
         <% posting.categories.each { |category| %>
           <%= category.name %>
@@ -12,8 +13,13 @@
         <%= posting.quantity %>
         <br>
         <%= posting.location %></li>
+        Created at: <%= posting.created_at %></li>
+        <hr>
     <% } %>
   </ul>
 <% end %>
 
+
+<a href='/search'>return to search</a>
+<br>
 <a href="/">Home</a>
