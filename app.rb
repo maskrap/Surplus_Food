@@ -102,11 +102,6 @@ post '/postings/:id/contact', :auth => :user do
   new_message.send_message(User.find(session[:user_id]), post.user)
 end
 
-get '/search' do
-  @postings = Posting.all
-  erb :search
-end
-
 get '/search/alphabetically/ascending' do
   @postings = Posting.order(description: :asc)
   @order = "descending"
