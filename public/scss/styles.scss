@@ -1,4 +1,4 @@
-
+@import "about-us";
 
 $nav-color:#500A0D;
 $lt-text:white;
@@ -6,10 +6,10 @@ $lt-text:white;
 
 body{
   background-color:#e7e5df;
-
 }
 .header{
   background-image: url(../img/pasta.jpg);
+  background-size:cover;
   background-repeat: no-repeat;
   height:500px;
   width:100%;
@@ -28,13 +28,18 @@ body{
       display: flex;
       justify-content: center;
       align-self: center;
-      width: 50%;
+      width: 25%;
       border-radius: 5px;
       opacity: .5;
-
+      padding: 1%;
+      text-align: center;
     }
 }
 
+a{
+  text-decoration: none;
+  color:white;
+}
 @font-face{
   font-family: 'glaresome';
   src:url("../fonts/GLARESOMEregular.otf");
@@ -58,7 +63,7 @@ body{
   display:flex;
   justify-content:space-around;
   padding-top: 1%;
-
+  box-shadow:  5px 5px 5px black;
 }
 
 
@@ -83,83 +88,82 @@ li{
   justify-content: space-around;
   align-items: center;
   font-family: 'Raleway', sans-serif;
-  %box {
-    border-radius: 5px;
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 60px 5px 5px 5px;
+    padding: 5px;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    align-items: left;
+    margin: 5px;
+    padding: 0 0 15px 0;
     width: 200px;
-    height: 200px;
-    margin-top: 30px;
-    text-align: center;
-    box-shadow: 0 2px 4px;
-    transition: all 0.2s ease-in-out;
+    background: #fff;
+    box-shadow: 0px 3px 10px 1px rgba(0, 0, 0, 0.1);
+    transition-duration: .5s;
+   &:hover {
+     cursor: pointer;
+     box-shadow:7px 7px 7px gray;
+     .card__image{
+       width:100%;
+     }
+   }
   }
-  .produce {
-    @extend %box;
-    background: url('../img/strawberries.jpeg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    h2, h3 {
-      display: none;
+  .card__image {
+    position: relative;
+    width: 100%;
+    display: block;
+    max-width: 200px;
+    height: 150px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    overflow: hidden;
+    transition-property: width;
+    transition-duration: .2s;
+    &:after {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      bottom: -4em;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      font-family: "FontAwesome";
+      font-size: 1em;
+      text-align: center;
+      color: rgba(255, 255, 255, 0);
+      color: #fff;
+      transition: (all .15s);
     }
-    &:hover {
-      cursor:pointer;
-      opacity: .8;
-      h2, h3 {
+    img {
       display: block;
-      color: orange;
+      width: 100%;
+    }
+  }
+// .is-checked animations
+  .card.is-checked {
+    .card__image {
+      &:after {
+        font-size: 2.26em;
+        bottom: 0;
+        transition: all .15s;
+        width:100%;
       }
     }
   }
-
-  .meat {
-    @extend %box;
-    background: url('../img/cheese.jpeg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    h2, h3 {
-      display: none;
-    }
-    &:hover {
-      cursor:pointer;
-      h2, h3 {
-      display: block;
-      color: orange;
-      }
-      opacity: .8;
-    }
-
-  }
-  .dry {
-    @extend %box;
-    background:url('../img/bread.jpeg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    h2, h3 {
-      display: none;
-    }
-    &:hover {
-      cursor:pointer;
-      opacity: .9;
-      h2, h3 {
-      display: block;
-      color: orange;
-      }
+// random elements scss
+  .card__description {
+    h2,
+    h3{
+      font-size: 1em;
+      padding-left: 5px;
     }
   }
-  .frozen{
-    @extend %box;
-    background:url('../img/icecream.jpeg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    h2, h3 {
-      display: none;
-    }
-    &:hover {
-      cursor:pointer;
-      opacity: .8;
-      h2, h3 {
-      display: block;
-      color: orange;
-      }
-    }
-  }
-}
+} //content ending bracket
