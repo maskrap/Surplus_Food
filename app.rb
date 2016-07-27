@@ -30,6 +30,7 @@ end
 
 get '/' do
   @page = "home"
+  @postings = Posting.take(4)
   erb :index
 end
 

@@ -1,82 +1,30 @@
 <div class="wrap">
 
   <div class="content">
-  <div class="card-container card--fixedWidth">
-  <div class="card">
+    <% if @postings.any? %>
+    <% @postings.each do | posting |%>
+    <a href="/postings/<%= posting.id %>">
+    <div class="card-container card--fixedWidth">
+    <div class="card">
 
-    <div class="card__image" id="card-1">
-      <div class="image-overlay">
+      <div class="card__image" id="card-1">
+        <div class="image-overlay">
+        </div>
+
+
       </div>
-      <img src="../img/strawberries.jpeg" alt="" />
-    </div>
-    <div class="card__actions">
-    </div>
-    <div class="card__description">
-      <h2>name</h2>
-      <h3>location</h3>
-      <h3>price</h3>
-      <h3>quantity</h3>
-    </div>
-
-  </div>
-  </div>
-
-  <div class="card-container card--fixedWidth">
-  <div class="card">
-
-    <div class="card__image" id="card-2">
-      <div class="image-overlay">
+      <div class="card__actions">
       </div>
-      <img src="../img/cheese.jpeg" alt="" />
-    </div>
-    <div class="card__actions">
-    </div>
-    <div class="card__description">
-      <h2>name</h2>
-      <h3>location</h3>
-      <h3>price</h3>
-      <h3>quantity</h3>
-    </div>
-
-  </div>
-  </div>
-
-  <div class="card-container card--fixedWidth">
-  <div class="card">
-
-    <div class="card__image" id="card-3">
-      <div class="image-overlay">
+      </a>
+      <div class="card__description">
+        <h2><%= posting.description %></h2>
+        <h3><%= posting.location %></h3>
+        <h3><%= posting.quantity %></h3>
+        <h3><%= posting.user.name %></h3>
       </div>
-      <img src="../img/bread.jpeg" alt="" />
     </div>
-    <div class="card__actions">
     </div>
-    <div class="card__description">
-      <h2>name</h2>
-      <h3>location</h3>
-      <h3>price</h3>
-      <h3>quantity</h3>
-    </div>
-  </div>
-  </div>
 
-  <div class="card-container card--fixedWidth">
-  <div class="card">
-
-    <div class="card__image" id="card-4">
-      <div class="image-overlay">
-      </div>
-      <img src="../img/icecream.jpeg" alt="" />
-    </div>
-    <div class="card__actions">
-    </div>
-    <div class="card__description">
-      <h2>name</h2>
-      <h3>location</h3>
-      <h3>price</h3>
-      <h3>quantity</h3>
-    </div>
-  </div>
-  </div>
-
+    <% end %>
+    <% end %>
 </div>
