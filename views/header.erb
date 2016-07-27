@@ -18,15 +18,19 @@
     </div>
   </div>
 
-<h1>PDX</h1>
-<h2>Food Collaborative</h2>
-<div class="nav2">
-  <div class="dropdown">
-   <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Search by:<span class="caret"></span></button>               <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-      <li role="presentation"><a role="menuitem" href="/search/alphabetically/ascending">Postings listed alphabetically: ascending</a></li>
-      <li role="presentation"><a href="/search/alphabetically/descending">Postings listed alphabetically: descending</a></li>
-      <li role="presentation"><a href="/search/category">Category</a></li>
-      <li role="presentation"><a href="/search/locations">Location</a></li>
-  </ul>
-</div>
+  <h1>PDX</h1>
+  <h2>Food Collaborative</h2>
+  <div class="nav2">
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Search by:<span class="caret"></span></button>               <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+        <li role="presentation"><a role="menuitem" href="/search/alphabetically/ascending">Postings listed alphabetically: ascending</a></li>
+        <li role="presentation"><a href="/search/alphabetically/descending">Postings listed alphabetically: descending</a></li>
+        <li role="presentation"><a href="/search/category">Category</a></li>
+        <li role="presentation"><a href="/search/locations">Location</a></li>
+      </ul>
+    </div>
+    <% if session[:user_id] %>
+      <a class="btn btn-success" href="/new">add new posting</a>
+    <% end %>
+  </div>
 </div>
