@@ -27,6 +27,7 @@
 
   <form action="/postings/<%= @posting.id %>" method="post">
     <input name="_method" type="hidden" value="delete">
-    <button type="submit">Delete Posting</button>
+    <button class="btn btn-danger" type="submit">Delete Posting</button>
+    <a href="/postings/<%= @posting.id %>/edit" class="btn btn-primary">Update Posting</a>
   </form>
 <div>

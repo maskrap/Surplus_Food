@@ -96,6 +96,18 @@ get '/postings/:id' do
   erb :posting_details
 end
 
+patch '/postings/:id' do
+  posting = Posting.find(params[:id])
+  user_id = session[:user_id]
+  description = params['description']
+  source_type = params['source_type']
+  quantity = params['quantity']
+  location = params['location']
+  @posting = Posting.create({user_id: user_id, description: description, source_type: source_type, quantity: quantity, location: location})
+  redirect '/postings/:id'
+end
+
+
 post '/postings/:id/contact', :auth => :user do
   post = Posting.find(params[:id])
   new_message = post.messages.create({:subject => params[:title], :body => params[:body]})
