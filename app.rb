@@ -103,11 +103,6 @@ post '/postings/:id/contact', :auth => :user do
   redirect back
 end
 
-get '/search' do
-  @postings = Posting.all
-  erb :search
-end
-
 get '/search/alphabetically/ascending' do
   @postings = Posting.order(description: :asc)
   @order = "descending"
