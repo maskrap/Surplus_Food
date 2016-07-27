@@ -23,6 +23,7 @@ body {
     width: 50%;
     border-radius: 5px;
     opacity: .5; }
+    
 .social-icons {
 width: 30px;
 height: 30px;
@@ -170,14 +171,4 @@ li {
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
     background-color: #ffb547;
-}
-
-.non_home {
-  float: left;
-  display: inline;
-  padding-top: 2%;
-  position: absolute;
-  top: 8px;
-  left: 16px;
-  font-size: 18px;
 }
