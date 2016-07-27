@@ -51,7 +51,6 @@
         <td><%= message.created_at %></td>
         <td>
           <form action="/inbox/<%= message.id %>" method="post">
-
             <input type="hidden" name="_method" value="delete">
             <button class="btn btn-danger" type="submit" name="button">Delete</button>
           </form>
