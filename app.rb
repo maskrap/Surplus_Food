@@ -97,6 +97,24 @@ get '/postings/:id' do
   erb :posting_details
 end
 
+get '/postings/:id/edit' do
+  @user = User.find(session[:user_id])
+  @posting = Posting.find(params[:id])
+  erb :postings_edit
+end
+
+patch '/postings/:id' do
+  user_id = session[:user_id]
+  @posting = Posting.find(params[:id].to_i)
+  description = params['new_description']
+  source_type = params['new_source_type']
+  quantity = params['new_quantity']
+  location = params['new_location']
+  @posting.update({description: description, source_type: source_type, quantity: quantity, location: location})
+  redirect "/postings/#{@posting.id}"
+end
+
+
 post '/postings/:id/contact', :auth => :user do
   post = Posting.find(params[:id])
   new_message = post.messages.create({:subject => params[:title], :body => params[:body]})

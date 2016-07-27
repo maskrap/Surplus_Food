@@ -1,0 +1,45 @@
+<h1>Edit Posting:</h1>
+
+<div class="container">
+  <form action="/postings/<%=@posting.id %>" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <label for="new_description">Description</label>
+    <input id="new_description" name="new_description" type="text" value="<%= @posting.description %>">
+    <br>
+
+    <br>
+    <label for="new_source_type">Source</label>
+    <select id="new_source_type" name="new_source_type" type="text" value="<%= @posting.source_type %>">
+      <option>Select a source</option>
+      <option>Individual</option>
+      <option>Restaurant</option>
+      <option>Brewery</option>
+      <option>Farm</option>
+      <option>General Food Business</option>
+      <option>Grocery Store</option>
+      <option>Non-Profit</option>
+    </select>
+    <br>
+    <label for="new_quantity">Quantity</label>
+    <input id="new_quantity" name="new_quantity" type="text" value="<%= @posting.quantity %>">
+    <br>
+    <label for="new_location">Location</label>
+    <select id="new_location" name="new_location" type="text">
+      <option>Select a region</option>
+      <option>North Portland</option>
+      <option>Northwest Portland</option>
+      <option>Southwest Portland</option>
+      <option>Northeast Portland</option>
+      <option>Southeast Portland</option>
+    </select>
+    <br>
+    <!-- <label for="city">City</label>
+    <select id="city" name="city" type="text">
+      <option>Portland</option>
+    </select>
+    <br> -->
+    <button type="submit" class="btn btn-success">Update</button>
+  </form>
+  <hr>
+  <span class="navigation"><a href="/">Home</a></span>
+</div>
