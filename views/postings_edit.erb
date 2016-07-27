@@ -1,13 +1,12 @@
 <h1>Edit Posting:</h1>
 
 <div class="container">
-  <form action="/postings/<%=@user.id %>" method="post">
+  <form action="/postings/<%=@posting.id %>" method="post">
     <input type="hidden" name="_method" value="patch">
-    <label for="new_description"><%= @posting.description %></label>
-    <input id="new_description" name="new_description" type="text">
+    <label for="new_description">Description</label>
+    <input id="new_description" name="new_description" type="text" value="<%= @posting.description %>">
     <br>
-    <label for="new_category_name"><%= category.name %></label>
-    <input id="new_category_name" name="new_category_name" type="text">
+
     <br>
     <label for="new_source_type">Source</label>
     <select id="new_source_type" name="new_source_type" type="text" value="<%= @posting.source_type %>">
@@ -24,7 +23,7 @@
     <label for="new_quantity">Quantity</label>
     <input id="new_quantity" name="new_quantity" type="text" value="<%= @posting.quantity %>">
     <br>
-    <label for="new_location"><%= @posting.location %></label>
+    <label for="new_location">Location</label>
     <select id="new_location" name="new_location" type="text">
       <option>Select a region</option>
       <option>North Portland</option>

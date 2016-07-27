@@ -96,15 +96,21 @@ get '/postings/:id' do
   erb :posting_details
 end
 
+get '/postings/:id/edit' do
+  @user = User.find(session[:user_id])
+  @posting = Posting.find(params[:id])
+  erb :postings_edit
+end
+
 patch '/postings/:id' do
-  posting = Posting.find(params[:id])
   user_id = session[:user_id]
-  description = params['description']
-  source_type = params['source_type']
-  quantity = params['quantity']
-  location = params['location']
-  @posting = Posting.create({user_id: user_id, description: description, source_type: source_type, quantity: quantity, location: location})
-  redirect '/postings/:id'
+  @posting = Posting.find(params[:id].to_i)
+  description = params['new_description']
+  source_type = params['new_source_type']
+  quantity = params['new_quantity']
+  location = params['new_location']
+  @posting.update({description: description, source_type: source_type, quantity: quantity, location: location})
+  redirect "/postings/#{@posting.id}"
 end
 
 
