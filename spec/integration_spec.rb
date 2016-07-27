@@ -7,6 +7,12 @@ describe 'the surplus food path', type: :feature do
     expect(page).to have_content 'Please sign in'
   end
 
+  it 'allows user to see our team' do
+    visit '/'
+    click_link 'Who We Are'
+    expect(page).to have_content('The program')
+  end
+
   it 'creates user' do
     visit '/'
     click_link 'Login'
@@ -14,6 +20,20 @@ describe 'the surplus food path', type: :feature do
     page.set_rack_session(user_id: new_user.id)
     visit '/'
     expect(page).to have_content('PDX')
+  end
+
+
+  it 'allows user to update password' do
+    visit '/'
+    click_link 'Login'
+    new_user = User.create({:name => "Peter", :password => "Pan"})
+    page.set_rack_session(user_id: new_user.id)
+    visit '/'
+    click_link 'Account'
+    fill_in 'password', {:with => "password"}
+    fill_in 'password_confirm', {:with => "password"}
+    click_button 'Update Password'
+    expect(page).to have_content('Password successfully')
   end
 
   it 'creates posting' do
