@@ -159,7 +159,7 @@ end
 
 patch '/users/edit', :auth => :user do
   user = User.find(session[:user_id])
-  user.update({:password => params[:password]}) if params[:password] == params[:password2]
+  user.update({:password => params[:password]}) if params[:password] == params[:password_confirm]
   redirect to "/users"
 end
 
