@@ -14,13 +14,16 @@
     <br>
     User: <%= @posting.user.name %>
     <br>
-  <form class="" action="/postings/<%= @posting.id%>/contact" method="post">
-  <label for="title">Title</label>
-  <input type="text" name="title">
-  <label for="body">Message</label>
-  <input type="text" name="body">
-  <button type="submit" name="button">Send</button>
-  </form>
+
+  <% if session[:user_id] %>
+    <form class="" action="/postings/<%= @posting.id%>/contact" method="post">
+    <label for="title">Title</label>
+    <input type="text" name="title">
+    <label for="body">Message</label>
+    <input type="text" name="body">
+    <button type="submit" name="button">Send</button>
+    </form>
+  <% end %>
 
   <form action="/postings/<%= @posting.id %>" method="post">
     <input name="_method" type="hidden" value="delete">
