@@ -1,6 +1,6 @@
 ENV['RACK_ENV'] = 'development'
 
-require("bundler/setup")
+require 'bundler/setup'
 require 'pry'
 
 Bundler.require(:default)
@@ -159,7 +159,12 @@ end
 
 patch '/users/edit', :auth => :user do
   user = User.find(session[:user_id])
-  user.update({:password => params[:password]}) if params[:password] == params[:password_confirm]
+  if params[:password] == params[:password_confirm]
+    user.update({:password => params[:password]})
+    flash[:alert] = "Password successfully changed!"
+  else
+    flash[:notice] = "Passwords do not match."
+  end
   redirect to "/users"
 end
 
