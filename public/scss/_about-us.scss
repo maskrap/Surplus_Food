@@ -1,0 +1,19 @@
+#about-img{
+  width:100%;
+}
+.about-us{
+  position: absolute;
+  p{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    color:white;
+    width:50%;
+    font-size:3em;
+    text-align: center;
+    background: rgba(211, 208, 203, .8);
+  }
+}

@@ -1,17 +1,19 @@
-<div class="message">
-  <div class="msg-subject">
-    <%= @message.subject %>
+<div class="container">
+  <div class="message">
+    <div class="msg-subject">
+      <%= @message.subject %>
+    </div>
+    <div class="msg-body">
+      <%= @message.body %>
+    </div>
   </div>
-  <div class="msg-body">
-    <%= @message.body %>
+  <div class="reply">
+    <form class="" action="/inbox/<%= @message.id %>" method="post">
+    <label for="title">Title</label>
+    <input type="text" name="title">
+    <label for="body">Message</label>
+    <input type="text" name="body">
+    <button type="submit" name="button">Send</button>
+    </form>
   </div>
-</div>
-<div class="reply">
-  <form class="" action="/inbox/<%= @message.id %>" method="post">
-  <label for="title">Title</label>
-  <input type="text" name="title">
-  <label for="body">Message</label>
-  <input type="text" name="body">
-  <button type="submit" name="button">Send</button>
-  </form>
 </div>
