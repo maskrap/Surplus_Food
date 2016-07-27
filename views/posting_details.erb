@@ -1,29 +1,38 @@
 <div class="container">
 
-  <%= @posting.description %>
-    <br>
+  <h1><%= @posting.description %></h1>
+    <h3>Categories:</h3>
     <% @posting.categories.each { |category| %>
       <%= category.name %>
-      <% } %>
-    <br>
+      <br>
+    <% } %>
+    <h3>Source Type:</h3>
     <%= @posting.source_type %>
-    <br>
+    <h3>Quantity:</h3>
     <%= @posting.quantity %>
-    <br>
+    <h3>Location:</h3>
     <%= @posting.location %>
-    <br>
-    User: <%= @posting.user.name %>
-    <br>
+    <h3>User:</h3>
+    <%= @posting.user.name %>
+    <h3>Created at: </h3>
+    <%= @posting.created_at %>
+    <hr>
 
   <% if session[:user_id] %>
+    <h3>Send a message to <%= @posting.user.name %></h3>
     <form class="" action="/postings/<%= @posting.id%>/contact" method="post">
     <label for="title">Title</label>
+    <br>
     <input type="text" name="title">
+    <br>
     <label for="body">Message</label>
-    <input type="text" name="body">
+    <br>
+    <textarea name="body" rows="5">
+    </textarea>
     <button type="submit" name="button">Send</button>
     </form>
   <% end %>
+  <hr>
 
   <form action="/postings/<%= @posting.id %>" method="post">
     <input name="_method" type="hidden" value="delete">
