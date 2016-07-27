@@ -44,6 +44,10 @@ get '/what_you_can_do' do
   erb :what_you_can_do
 end
 
+get '/forgot' do
+  erb :forgot
+end
+
 get '/postings' do
   @postings = Posting.all
   @categories = Category.all
