@@ -1,0 +1,32 @@
+<div class="header">
+  <div class="nav">
+    <img src="" alt="" />
+    <div class="navbar">
+      <ul>
+        <li><div class="dropdown">
+          <button class="dropbtn">About Us</button>
+          <div class="dropdown-content">
+            <a href="/aboutus">Who We Are</a>
+            <a href="/foodwaste">Food Waste</a>
+            <a href="/what_you_can_do">What You Can Do</a>
+          </div>
+        </div></li>
+        <li><a href="/users">Account</a></li>
+        <li><a href="/inbox">Inbox</a></li>
+        <li><% if session[:user_id] %><a href="/logout">Logout</a><% else %><a href="/login">Login</a><% end %></li>
+      </ul>
+    </div>
+  </div>
+
+<h1>PDX</h1>
+<h2>Food Collective</h2>
+<div class="nav2">
+  <div class="dropdown">
+   <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Search by:<span class="caret"></span></button>               <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+      <li role="presentation"><a role="menuitem" href="/search/alphabetically/ascending">Postings listed alphabetically: ascending</a></li>
+      <li role="presentation"><a href="/search/alphabetically/descending">Postings listed alphabetically: descending</a></li>
+      <li role="presentation"><a href="/search/category">Category</a></li>
+      <li role="presentation"><a href="/search/locations">Location</a></li>
+  </ul>
+</div>
+</div>

@@ -1,20 +1,21 @@
-<h1>Categories</h1>
+<div class="container">
+  <h1>Categories</h1>
 
-<% if @categories.any? %>
-  <% @categories.each { |category| %>
-    <h3><%= category.name %></h3>
-      <% @postings.each { |posting| %>
-        <ul>
-          <% if posting.categories.include?(category) %>
-            <li><a href='/postings/<%= posting.id %>'><%= posting.description %></a> (<%= posting.quantity %>)</li>
-          <% end %>
-        </ul>
-      <% } %>
-  <% } %>
-  <% else %>
-    <p>There are currently no categories<p>
+  <% if @categories.any? %>
+    <% @categories.each { |category| %>
+      <h3 id="<%= category.id %>"><%= category.name %></h3>
+        <% @postings.each { |posting| %>
+          <ul>
+            <% if posting.categories.include?(category) %>
+              <li><a href='/postings/<%= posting.id %>'><%= posting.description %></a>
+              (quantity: <%= posting.quantity %>)</li>
+            <% end %>
+          </ul>
+        <% } %>
+    <% } %>
   <% end %>
 
-<a href='/search'>return to search</a>
-<br>
-<a href="/">Home</a>
+  <a href='/search'>return to search</a>
+  <br>
+  <a href="/">Home</a>
+<div>

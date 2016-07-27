@@ -1,19 +1,22 @@
-<h5><a href="/search/alphabetically/<%= @order %>"><%= @order %></a></h5>
-<% if @postings.any? %>
-  <ul>
-    <% @postings.each { |posting| %>
-      <li><a href="/postings/<%= posting.id %>"><strong><%= posting.description %></strong></a>
-        (<%= posting.quantity %>)
-        <br>
-        <%= posting.location %>
-        <br>
-        Created at: <%= posting.created_at %></li>
-        <hr>
-    <% } %>
-  </ul>
-<% end %>
+<div class="container">
+
+  <h5><a href="/search/alphabetically/<%= @order %>"><%= @order %></a></h5>
+  <% if @postings.any? %>
+    <ul>
+      <% @postings.each { |posting| %>
+        <li><a href="/postings/<%= posting.id %>"><strong><%= posting.description %></strong></a>
+          (quantity: <%= posting.quantity %>)
+          <br>
+          <%= posting.location %>
+          <br>
+          Created at: <%= posting.created_at %></li>
+          <hr>
+      <% } %>
+    </ul>
+  <% end %>
 
 
-<a href='/search'>return to search</a>
-<br>
-<a href="/">Home</a>
+  <a href='/search'>return to search</a>
+  <br>
+  <a href="/">Home</a>
+<div>

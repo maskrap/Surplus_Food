@@ -1,12 +1,15 @@
-<% @locations.each { |location| %>
-  <h3><%= location %></h3>
-  <% @postings.each { |posting| %>
-    <ul>
-      <% if posting.location == location %>
-        <li><a href="/postings/<%= posting.id %>"><%= posting.description %></a></li>
-        <% end %>
-    </ul>
-  <% } %>
-<% } %>
+<div class="container">
 
-<a href='/search'>return to search</a>
+  <% @locations.each { |location| %>
+    <h3><%= location %></h3>
+    <% @postings.each { |posting| %>
+      <ul>
+        <% if posting.location == location %>
+          <li><a href="/postings/<%= posting.id %>"><%= posting.description %></a> (quantity: <%= posting.quantity %>)</li>
+          <% end %>
+      </ul>
+    <% } %>
+  <% } %>
+
+  <a href='/search'>return to search</a>
+<div>
