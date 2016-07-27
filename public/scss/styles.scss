@@ -167,3 +167,102 @@ li{
     }
   }
 } //content ending bracket
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: #500A0D;
+    color: #f1f1f1;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #ffb547;
+}
+
+.non_home {
+  float: left;
+  display: inline;
+  padding-top: 2%;
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  font-size: 18px;
+}
+
+//message page styling
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+  h1 {
+    font-family: 'glaresome';
+    font-size: 7em;
+  }
+  .item {
+    border-radius: 5px;
+    background: #d3d0cb;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-family: 'Raleway', sans-serif;
+    strong {
+      font-size: 3em;
+      padding-right: 25px;
+      align-self: center;
+    }
+    .col1 {
+      flex-direction: column;
+      font-style: italic;
+      font-size: 1.5em;
+      padding-left: 25px;
+      border-left: 2px solid #335c67;
+    }
+  }
+  .btn-warning {
+    background: #ffb547;
+    color: $lt-text;
+  }
+  .btn-default {
+    background: #335c67;
+    color: $lt-text;
+  }
+}

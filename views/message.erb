@@ -11,8 +11,9 @@
     <form class="" action="/inbox/<%= @message.id %>" method="post">
     <label for="title">Title</label>
     <input type="text" name="title">
+    <br>
     <label for="body">Message</label>
-    <input type="text" name="body">
+    <textarea class="form-control" rows="5" cols="40" placeholder="Please type message here..."></textarea>
     <button type="submit" name="button">Send</button>
     </form>
   </div>

@@ -1,7 +1,9 @@
 <div class="container">
-
-  <%= @posting.description %>
+  <h1>SEND A MESSAGE</h1>
+  <div class="item">
+  <strong><%= @posting.description %></strong>
     <br>
+    <div class="col1">
     <% @posting.categories.each { |category| %>
       <%= category.name %>
       <% } %>
@@ -14,19 +16,23 @@
     <br>
     User: <%= @posting.user.name %>
     <br>
-
+  </div>
+  </div>
   <% if session[:user_id] %>
     <form class="" action="/postings/<%= @posting.id%>/contact" method="post">
-    <label for="title">Title</label>
-    <input type="text" name="title">
-    <label for="body">Message</label>
-    <input type="text" name="body">
-    <button type="submit" name="button">Send</button>
+    <!-- <label for="title">Title</label> -->
+    <br>
+    <input type="text" class="form-control" name="title" placeholder="Message title...">
+    <br>
+    <!-- <label for="body">Message</label> -->
+    <textarea class="form-control" rows="15" cols="100" placeholder="Please type message here..."></textarea>
+    <br>
+    <button type="submit" class="btn btn-warning" name="button">Send</button>
     </form>
   <% end %>
 
   <form action="/postings/<%= @posting.id %>" method="post">
     <input name="_method" type="hidden" value="delete">
-    <button type="submit">Delete Posting</button>
+    <button type="submit" class="btn btn-default">Delete Posting</button>
   </form>
 <div>
