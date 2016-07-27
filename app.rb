@@ -164,10 +164,10 @@ patch '/user/edit', :auth => :user do
   else
     flash[:notice] = "Passwords do not match."
   end
-  redirect to "/users"
+  redirect to "/user"
 end
 
-post '/users/new' do
+post '/user/new' do
   new_user = User.new(name: params[:email], password: params[:password])
   if new_user.save
     session[:user_id] = new_user.id
