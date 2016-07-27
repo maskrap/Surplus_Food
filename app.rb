@@ -160,6 +160,7 @@ patch '/user/edit', :auth => :user do
   if params[:password] == params[:password_confirm]
     user.update({:password => params[:password]})
     flash[:alert] = "Password successfully changed!"
+    redirect to "/"
   else
     flash[:notice] = "Passwords do not match."
   end
