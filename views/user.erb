@@ -12,4 +12,18 @@
       <button class="btn btn-primary" type="submit" name="button">Update Password</button>
     </div>
   </form>
+  <hr>
+  <div class="user_posting">
+    <h3>My Postings:</h3>
+    <% if @user.postings.any? %>
+      <ol>
+        <% @user.postings.each { |posting|  %>
+          <li><a href="/postings/<%=posting.id %>"><strong>posting.description</strong></a></li>
+          <hr>
+          <% } %>
+      </ol>
+      <% else %>
+        <h3>No postings at this time.</h3>
+      <% end %>
+  </div >
 </div>
