@@ -196,6 +196,12 @@ post '/inbox/:id', :auth => :user do
   redirect to '/inbox'
 end
 
+delete '/inbox/:id', :auth => :user do
+  msg = Message.find(params[:id])
+  msg.destroy ? flash[:alert] = "Message Deleted" : flash[:notice] = "Unable to delete message."
+  redirect to "/inbox"
+end
+
 get '/logout' do
   session[:user_id] = nil
   redirect to '/'
