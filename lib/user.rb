@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :postings
   has_secure_password
   validates :name, presence: true
+  validates :name, uniqueness: true
   before_save :downcase_name
 
 private

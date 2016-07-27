@@ -1,12 +1,15 @@
 <div>
   <h1><%= @user.name %></h1>
-    <form action="/users/edit" method="post">
-    <input type="hidden" name="_method" value="patch" >
-    <input type="password" name="password" placeholder="New Password">
-    <input type="password" name="password_confirm" placeholder="Confirm New">
-    <button class="btn btn-primary" type="submit" name="button">Update Password</button>
+
+  <a class='btn btn-success' href='/new'>List a new posting</a>
+  <a class='btn btn-success' href='/'>Home</a>
+
+  <form action="/users/edit" method="post">
+    <div class="form-group">
+      <input type="hidden" name="_method" value="patch" >
+      <input class="form-control" type="password" name="password" placeholder="New Password">
+      <input class="form-control" type="password" name="password_confirm" placeholder="Confirm New">
+      <button class="btn btn-primary" type="submit" name="button">Update Password</button>
+    </div>
   </form>
-  <br>
-  <h3><a href='/postings/form'>List a new posting</a></h3>
-  <h3><a href='/'>Home</a></h3>
 </div>
