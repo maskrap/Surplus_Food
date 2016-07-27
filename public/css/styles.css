@@ -45,14 +45,9 @@ body {
     padding: 1%;
     text-align: center; }
 
-.nav a {
+a {
   text-decoration: none;
   color: white; }
-
-.social-icons {
-width: 30px;
-height: 30px;
-}
 
 @font-face {
   font-family: 'glaresome';
@@ -123,7 +118,6 @@ li {
     width: 100%;
     display: block;
     max-width: 200px;
-    height: 150px;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     overflow: hidden;
@@ -146,63 +140,52 @@ li {
     .content .card__image img {
       display: block;
       width: 100%; }
-  .content .card.is-checked .card__image:after {
-    font-size: 2.26em;
-    bottom: 0;
-    transition: all .15s;
-    width: 100%; }
-  .content .card__description h2,
+  .content .card__description h2 {
+    font-weight: bold; }
   .content .card__description h3 {
     font-size: 1em;
     padding-left: 5px; }
 
-/*# sourceMappingURL=styles.css.map */
-
 /* Dropdown Button */
 .dropbtn {
-    background-color: #500A0D;
-    color: #f1f1f1;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
+  background-color: #500A0D;
+  color: #f1f1f1;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer; }
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
-    position: relative;
-    display: inline-block;
-}
+  position: relative;
+  display: inline-block; }
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); }
 
 /* Links inside the dropdown */
 .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block; }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown-content a:hover {
+  background-color: #f1f1f1; }
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
-    display: block;
-}
+  display: block; }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
-    background-color: #ffb547;
-}
+  background-color: #ffb547; }
 
 .non_home {
   float: left;
@@ -211,5 +194,61 @@ li {
   position: absolute;
   top: 8px;
   left: 16px;
-  font-size: 18px;
-}
+  font-size: 18px; }
+
+.who {
+  border: 2px solid;
+  padding: 2%; }
+  .who h1 {
+    font-size: 3em;
+    text-align: center;
+    font-family: "glaresome"; }
+
+.who-card {
+  width: 100%;
+  display: flex;
+  flex-flow: wrap;
+  flex-direction: row;
+  justify-content: center; }
+  .who-card img {
+    border: 2px solid; }
+
+.me {
+  display: flex;
+  position: relative;
+  padding: 2%; }
+  .me p {
+    position: absolute;
+    top: 70%;
+    left: 10%;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    font-size: 2.5em;
+    font-weight: bold; }
+
+.who-statement {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.5em;
+  text-align: center; }
+
+.food-waste {
+  border: 2px solid;
+  padding: 2%; }
+  .food-waste h1 {
+    font-size: 3em;
+    text-align: center;
+    font-family: "glaresome"; }
+  .food-waste div {
+    font-size: 1.5em; }
+
+.what {
+  border: 2px solid;
+  padding: 2%; }
+  .what p {
+    font-size: 1.5em; }
+  .what h1 {
+    font-size: 3em;
+    text-align: center;
+    font-family: "glaresome"; }
+
+/*# sourceMappingURL=styles.css.map */
