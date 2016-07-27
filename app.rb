@@ -148,12 +148,12 @@ get '/signup' do
   erb :signup
 end
 
-get '/users', :auth => :user  do
+get '/user', :auth => :user  do
   @user = User.find(session[:user_id])
   erb :user
 end
 
-patch '/users/edit', :auth => :user do
+patch '/user/edit', :auth => :user do
   user = User.find(session[:user_id])
   if params[:password] == params[:password_confirm]
     user.update({:password => params[:password]})
