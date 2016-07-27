@@ -100,11 +100,7 @@ post '/postings/:id/contact', :auth => :user do
   post = Posting.find(params[:id])
   new_message = post.messages.create({:subject => params[:title], :body => params[:body]})
   new_message.send_message(User.find(session[:user_id]), post.user)
-end
-
-get '/search' do
-  @postings = Posting.all
-  erb :search
+  redirect back
 end
 
 get '/search/alphabetically/ascending' do
@@ -188,6 +184,14 @@ get '/inbox/:id', :auth => :user do
   @user = User.find(session[:user_id])
   @message = @user.messages.find(params[:id])
   erb :message
+end
+
+post '/inbox/:id', :auth => :user do
+  msg = Message.find(params[:id])
+  post = Posting.find(msg.posting.id)
+  new_message = post.messages.create({:subject => params[:title], :body => params[:body]})
+  new_message.send_message(User.find(session[:user_id]), msg.sender)
+  redirect to '/inbox'
 end
 
 get '/logout' do
