@@ -1,27 +1,8 @@
-#about-img {
-  width: 100%; }
-
-.about-us {
-  position: absolute; }
-  .about-us p {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    color: white;
-    width: 50%;
-    font-size: 3em;
-    text-align: center;
-    background: rgba(211, 208, 203, 0.8); }
-
 body {
   background-color: #e7e5df; }
 
 .header {
   background-image: url(../img/pasta.jpg);
-  background-size: cover;
   background-repeat: no-repeat;
   height: 500px;
   width: 100%;
@@ -39,16 +20,10 @@ body {
     display: flex;
     justify-content: center;
     align-self: center;
-    width: 25%;
+    width: 50%;
     border-radius: 5px;
-    opacity: .5;
-    padding: 1%;
-    text-align: center; }
-
-a {
-  text-decoration: none;
-  color: white; }
-
+    opacity: .5; }
+    
 .social-icons {
 width: 30px;
 height: 30px;
@@ -72,8 +47,7 @@ height: 30px;
   background-color: #500A0D;
   display: flex;
   justify-content: space-around;
-  padding-top: 1%;
-  box-shadow: 5px 5px 5px black; }
+  padding-top: 1%; }
 
 li {
   display: inline;
@@ -94,67 +68,62 @@ li {
   justify-content: space-around;
   align-items: center;
   font-family: 'Raleway', sans-serif; }
-  .content .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    border-radius: 4px;
-    overflow: hidden;
-    margin: 60px 5px 5px 5px;
-    padding: 5px; }
-  .content .card {
-    display: flex;
-    flex-direction: column;
-    border-radius: 4px;
-    align-items: left;
-    margin: 5px;
-    padding: 0 0 15px 0;
+  .content .produce, .content .meat, .content .dry, .content .frozen {
+    border-radius: 5px;
     width: 200px;
-    background: #fff;
-    box-shadow: 0px 3px 10px 1px rgba(0, 0, 0, 0.1);
-    transition-duration: .5s; }
-    .content .card:hover {
+    height: 200px;
+    margin-top: 30px;
+    text-align: center;
+    box-shadow: 0 2px 4px;
+    transition: all 0.2s ease-in-out; }
+  .content .produce {
+    background: url("../img/strawberries.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat; }
+    .content .produce h2, .content .produce h3 {
+      display: none; }
+    .content .produce:hover {
       cursor: pointer;
-      box-shadow: 7px 7px 7px gray; }
-      .content .card:hover .card__image {
-        width: 100%; }
-  .content .card__image {
-    position: relative;
-    width: 100%;
-    display: block;
-    max-width: 200px;
-    height: 150px;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    overflow: hidden;
-    transition-property: width;
-    transition-duration: .2s; }
-    .content .card__image:after {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      bottom: -4em;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      font-family: "FontAwesome";
-      font-size: 1em;
-      text-align: center;
-      color: rgba(255, 255, 255, 0);
-      color: #fff;
-      transition: all 0.15s; }
-    .content .card__image img {
-      display: block;
-      width: 100%; }
-  .content .card.is-checked .card__image:after {
-    font-size: 2.26em;
-    bottom: 0;
-    transition: all .15s;
-    width: 100%; }
-  .content .card__description h2,
-  .content .card__description h3 {
-    font-size: 1em;
-    padding-left: 5px; }
+      opacity: .8; }
+      .content .produce:hover h2, .content .produce:hover h3 {
+        display: block;
+        color: orange; }
+  .content .meat {
+    background: url("../img/cheese.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat; }
+    .content .meat h2, .content .meat h3 {
+      display: none; }
+    .content .meat:hover {
+      cursor: pointer;
+      opacity: .8; }
+      .content .meat:hover h2, .content .meat:hover h3 {
+        display: block;
+        color: orange; }
+  .content .dry {
+    background: url("../img/bread.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat; }
+    .content .dry h2, .content .dry h3 {
+      display: none; }
+    .content .dry:hover {
+      cursor: pointer;
+      opacity: .9; }
+      .content .dry:hover h2, .content .dry:hover h3 {
+        display: block;
+        color: orange; }
+  .content .frozen {
+    background: url("../img/icecream.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat; }
+    .content .frozen h2, .content .frozen h3 {
+      display: none; }
+    .content .frozen:hover {
+      cursor: pointer;
+      opacity: .8; }
+      .content .frozen:hover h2, .content .frozen:hover h3 {
+        display: block;
+        color: orange; }
 
 /*# sourceMappingURL=styles.css.map */
 
@@ -202,14 +171,4 @@ li {
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
     background-color: #ffb547;
-}
-
-.non_home {
-  float: left;
-  display: inline;
-  padding-top: 2%;
-  position: absolute;
-  top: 8px;
-  left: 16px;
-  font-size: 18px;
 }
