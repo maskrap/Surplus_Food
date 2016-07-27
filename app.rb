@@ -96,6 +96,7 @@ post '/postings/:id/contact', :auth => :user do
   post = Posting.find(params[:id])
   new_message = post.messages.create({:subject => params[:title], :body => params[:body]})
   new_message.send_message(User.find(session[:user_id]), post.user)
+  redirect back
 end
 
 get '/search' do
@@ -155,7 +156,11 @@ end
 
 patch '/users/edit', :auth => :user do
   user = User.find(session[:user_id])
-  user.update({:password => params[:password]}) if params[:password] == params[:password2]
+  if params[:password] == params[:password_confirm]
+    user.update({:password => params[:password]})
+  else
+    flash[:notice] = "passwords did not match"
+  end
   redirect to "/users"
 end
 
@@ -179,6 +184,14 @@ get '/inbox/:id', :auth => :user do
   @user = User.find(session[:user_id])
   @message = @user.messages.find(params[:id])
   erb :message
+end
+
+post '/inbox/:id', :auth => :user do
+  msg = Message.find(params[:id])
+  post = Posting.find(msg.posting.id)
+  new_message = post.messages.create({:subject => params[:title], :body => params[:body]})
+  new_message.send_message(User.find(session[:user_id]), msg.sender)
+  redirect to '/inbox'
 end
 
 get '/logout' do
