@@ -101,6 +101,7 @@ post '/postings/:id/contact', :auth => :user do
   post = Posting.find(params[:id])
   new_message = post.messages.create({:subject => params[:title], :body => params[:body]})
   new_message.send_message(User.find(session[:user_id]), post.user)
+  flash[:alert] = "Message Sent"
   redirect back
 end
 
