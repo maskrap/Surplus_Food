@@ -101,6 +101,7 @@ post '/postings/:id/contact', :auth => :user do
   post = Posting.find(params[:id])
   new_message = post.messages.create({:subject => params[:title], :body => params[:body]})
   new_message.send_message(User.find(session[:user_id]), post.user)
+  flash[:alert] = "Message successfully sent!"
   redirect back
 end
 
@@ -162,10 +163,10 @@ patch '/user/edit', :auth => :user do
   else
     flash[:notice] = "Passwords do not match."
   end
-  redirect to "/users"
+  redirect to "/user"
 end
 
-post '/users/new' do
+post '/user/new' do
   new_user = User.new(name: params[:email], password: params[:password])
   if new_user.save
     session[:user_id] = new_user.id

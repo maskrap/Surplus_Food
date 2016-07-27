@@ -4,7 +4,7 @@
     <tr>
       <th>From</th>
       <th>Subject</th>
-      <th>Posting</th>
+      <!-- <th>Posting</th> -->
       <th>Date</th>
       <th>Action</th>
     </tr>
@@ -15,7 +15,7 @@
         <tr>
           <td><%= message.sender.name %></a></td>
           <td><a href="/inbox/<%= message.id %>"><%= message.subject %></a></td>
-          <td><a href="/postings/<%= message.posting.id %>"><%= message.posting.description %></a></td>
+
           <td><%= message.created_at %></td>
           <td>
             <form action="/inbox/<%= message.id %>" method="post">
@@ -36,7 +36,7 @@
     <tr>
       <th>From</th>
       <th>Subject</th>
-      <th>Posting</th>
+      <!-- <th>Posting</th> -->
       <th>Date</th>
       <th>Action</th>
     </tr>
@@ -47,7 +47,7 @@
       <tr>
         <td><%= message.sender.name %></a></td>
         <td><a href="/inbox/<%= message.id %>"><%= message.subject %></a></td>
-        <td><a href="/postings/<%= message.posting.id %>"><%= message.posting.description %></a></td>
+
         <td><%= message.created_at %></td>
         <td>
           <form action="/inbox/<%= message.id %>" method="post">
