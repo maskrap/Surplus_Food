@@ -1,6 +1,6 @@
 ENV['RACK_ENV'] = 'development'
 
-require("bundler/setup")
+require 'bundler/setup'
 require 'pry'
 
 Bundler.require(:default)
@@ -100,11 +100,7 @@ post '/postings/:id/contact', :auth => :user do
   post = Posting.find(params[:id])
   new_message = post.messages.create({:subject => params[:title], :body => params[:body]})
   new_message.send_message(User.find(session[:user_id]), post.user)
-end
-
-get '/search' do
-  @postings = Posting.all
-  erb :search
+  redirect back
 end
 
 get '/search/alphabetically/ascending' do
@@ -159,7 +155,12 @@ end
 
 patch '/users/edit', :auth => :user do
   user = User.find(session[:user_id])
-  user.update({:password => params[:password]}) if params[:password] == params[:password_confirm]
+  if params[:password] == params[:password_confirm]
+    user.update({:password => params[:password]})
+    flash[:alert] = "Password successfully changed!"
+  else
+    flash[:notice] = "Passwords do not match."
+  end
   redirect to "/users"
 end
 
@@ -183,6 +184,14 @@ get '/inbox/:id', :auth => :user do
   @user = User.find(session[:user_id])
   @message = @user.messages.find(params[:id])
   erb :message
+end
+
+post '/inbox/:id', :auth => :user do
+  msg = Message.find(params[:id])
+  post = Posting.find(msg.posting.id)
+  new_message = post.messages.create({:subject => params[:title], :body => params[:body]})
+  new_message.send_message(User.find(session[:user_id]), msg.sender)
+  redirect to '/inbox'
 end
 
 get '/logout' do
