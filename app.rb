@@ -44,6 +44,10 @@ get '/what_you_can_do' do
   erb :what_you_can_do
 end
 
+get '/forgot' do
+  erb :forgot
+end
+
 get '/postings' do
   @postings = Posting.all
   @categories = Category.all
@@ -155,7 +159,7 @@ end
 
 patch '/users/edit', :auth => :user do
   user = User.find(session[:user_id])
-  user.update({:password => params[:password]}) if params[:password] == params[:password2]
+  user.update({:password => params[:password]}) if params[:password] == params[:password_confirm]
   redirect to "/users"
 end
 

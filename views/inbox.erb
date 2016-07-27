@@ -1,21 +1,23 @@
-<h3>In:</h3>
-<ul>
-<% if @user.messages.received.any? %>
-    <% @user.messages.received.each do | message | %>
+<div class="container">
+  <h3>In:</h3>
+  <ul>
+  <% if @user.messages.received.any? %>
+      <% @user.messages.received.each do | message | %>
+      <li><a href="/inbox/<%= message.id %>"><%= message.subject %></a></li>
+      <% end %>
+  <% else %>
+      <li>No messages found....</li>
+  <% end %>
+  </ul>
+
+  <h3>Out:</h3>
+  <ul>
+  <% if @user.messages.sent.any? %>
+    <% @user.messages.sent.each do | message | %>
     <li><a href="/inbox/<%= message.id %>"><%= message.subject %></a></li>
     <% end %>
-<% else %>
-    <li>No messages found....</li>
-<% end %>
-</ul>
-
-<h3>Out:</h3>
-<ul>
-<% if @user.messages.sent.any? %>
-  <% @user.messages.sent.each do | message | %>
-  <li><a href="/inbox/<%= message.id %>"><%= message.subject %></a></li>
+  <% else %>
+      <li>No messages found....</li>
   <% end %>
-<% else %>
-    <li>No messages found....</li>
-<% end %>
-</ul>
+  </ul>
+</div>
