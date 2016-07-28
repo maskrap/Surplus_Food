@@ -1,5 +1,12 @@
 @import "about-us";
 
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 $nav-color:#500A0D;
 $lt-text:white;
 
@@ -316,6 +323,7 @@ li{
 .me{
   display:flex;
   position:relative;
+  padding:1em;
   p{
     position:absolute;
     top:70%;
@@ -325,7 +333,6 @@ li{
     font-size: 2.5em;
     font-weight: bold;
   }
-  padding:2%;
 }
 
 .who-statement{
@@ -361,4 +368,20 @@ li{
       font-family:'glaresome';
     }
 }
+}
+////forms ///
+.forms-border{
+  border:2px solid;
+  padding:3em;
+  width:70vw;
+  display:flex;
+  flex-direction: column;
+  }
+#formButton{
+  width: 50%;
+  margin-left:25%;
+  margin-right:25%;
+  display:flex;
+  justify-content:center;
+
 }

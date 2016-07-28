@@ -16,6 +16,12 @@
     text-align: center;
     background: rgba(211, 208, 203, 0.8); }
 
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
 body {
   background-color: #e7e5df; }
 
@@ -273,7 +279,7 @@ li {
   .container .me {
     display: flex;
     position: relative;
-    padding: 2%; }
+    padding: 1em; }
     .container .me p {
       position: absolute;
       top: 70%;
@@ -304,5 +310,19 @@ li {
       font-size: 3em;
       text-align: center;
       font-family: 'glaresome'; }
+
+.forms-border {
+  border: 2px solid;
+  padding: 3em;
+  width: 70vw;
+  display: flex;
+  flex-direction: column; }
+
+#formButton {
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+  display: flex;
+  justify-content: center; }
 
 /*# sourceMappingURL=styles.css.map */
