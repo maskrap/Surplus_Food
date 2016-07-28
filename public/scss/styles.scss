@@ -56,6 +56,14 @@ a{
   justify-content:flex-end;
   padding-top: 2%;
   box-shadow:  5px 5px 5px black;
+  .logo {
+    max-width: 140px;
+    padding-right: 62%;
+    padding-left: 4%;
+    #logo-img {
+      max-width: 140px;
+    }
+  }
 }
 
 .nav2{
