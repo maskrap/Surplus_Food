@@ -1,29 +1,45 @@
-<h2>User: <%= @user.name %></h2>
-<hr>
-<a class='btn btn-success' href='/new'>List a new posting</a>
-<a class='btn btn-info' href='/'>Home</a>
-<hr>
-<form action="/user/edit" method="post">
-  <div class="form-group">
-    <input type="hidden" name="_method" value="patch" >
-    <input type="password" name="password" placeholder="New Password">
-    <input type="password" name="password_confirm" placeholder="Confirm New">
-    <button class="btn btn-warning" type="submit" name="button">Update Password</button>
+<div class="container">
+<div class="account-page">
+  <h1>Account</h1>
+  <div class="name-and-pass">
+
+    <div class="name">
+      <h2><%= @user.name %></h2>
+
+    </div>
+    <form  role="form" action="/user/edit" method="post">
+      <div class="form-group" id="update-pass">
+        <input class="form-control" type="hidden" name="_method" value="patch" >
+        <input class="form-control" type="password" name="password" placeholder="New Password">
+        <input class="form-control" type="password" name="password_confirm" placeholder="Confirm New">
+        <button class="btn btn-warning" type="submit" name="button">Update Password</button>
+      </div>
+    </form>
+
   </div>
-  </form>
   <hr>
+  <div class="account-post">
+
+    <a class='btn btn-success' href='/new'>List a new posting</a>
+  </div>
+
 
   <div class="user_posting">
     <h3>My Postings:</h3>
     <% if @user.postings.any? %>
+    <div class="posting">
+
       <ol>
         <% @user.postings.each { |posting|  %>
-          <li><a href="/postings/<%=posting.id %>"><strong><%= posting.description%></strong></a></li>
+          <li id="new_posting"><a href="/postings/<%=posting.id %>"><strong><%= posting.description%></strong></a></li>
           <br>
           <% } %>
-      </ol>
-      <% else %>
-        <h3>No postings at this time.</h3>
-      <% end %>
-  </div >
+        </ol>
+        <% else %>
+        <h5>No postings at this time.</h5>
+        <% end %>
+    </div>
+
+  </div>
+</div>
 </div>

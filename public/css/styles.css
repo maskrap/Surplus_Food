@@ -16,8 +16,15 @@
     text-align: center;
     background: rgba(211, 208, 203, 0.8); }
 
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
 body {
-  background-color: #e7e5df; }
+  background-color: #e7e5df;
+  font-family: 'Raleway', sans-serif; }
 
 .header {
   background-image: url(../img/pasta.jpg);
@@ -259,7 +266,7 @@ li {
   .container .me {
     display: flex;
     position: relative;
-    padding: 2%; }
+    padding: 1em; }
     .container .me p {
       position: absolute;
       top: 70%;
@@ -290,5 +297,57 @@ li {
       font-size: 3em;
       text-align: center;
       font-family: 'glaresome'; }
+
+.forms-border {
+  border: 2px solid;
+  padding: 3em;
+  width: 70vw;
+  display: flex;
+  flex-direction: column; }
+
+#formButton {
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+  display: flex;
+  justify-content: center; }
+
+.user_posting {
+  border: 1px solid;
+  padding: 1em;
+  background-color: white; }
+
+#new_posting {
+  color: black;
+  font-size: 2em; }
+
+.account-page {
+  width: 70vw; }
+  .account-page h1 {
+    text-align: center; }
+
+.name-and-pass {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 3em; }
+
+.name {
+  text-transform: capitalize; }
+  .name h2 {
+    font-size: 4em; }
+
+.account-post {
+  margin: 3em;
+  display: flex;
+  justify-content: center; }
+
+#update-pass {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  #update-pass input {
+    margin: 10px; }
 
 /*# sourceMappingURL=styles.css.map */
