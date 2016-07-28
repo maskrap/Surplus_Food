@@ -1,6 +1,10 @@
 #about-img {
   width: 100%; }
 
+#logo-img {
+  max-width: 140px;
+}
+
 .about-us {
   position: absolute; }
   .about-us p {
@@ -45,7 +49,7 @@ body {
     padding: 1%;
     text-align: center; }
 
-a {
+.navbar a {
   text-decoration: none;
   color: white; }
 
