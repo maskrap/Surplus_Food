@@ -22,7 +22,6 @@ describe 'the surplus food path', type: :feature do
     expect(page).to have_content('PDX')
   end
 
-
   it 'allows user to update password' do
     visit '/'
     click_link 'Login'
@@ -42,7 +41,7 @@ describe 'the surplus food path', type: :feature do
     new_user = User.create({:name => "Peter", :password => "Pan"})
     page.set_rack_session(user_id: new_user.id)
     visit '/'
-    click_link 'add new posting'
+    click_link 'Add new posting'
     test_posting = Posting.new({:description => "description"})
     test_posting.save
     fill_in 'description', {:with => "Strawbs"}
@@ -60,7 +59,7 @@ describe 'the surplus food path', type: :feature do
     new_user = User.create({:name => "Peter", :password => "Pan"})
     page.set_rack_session(user_id: new_user.id)
     visit '/'
-    click_link 'add new posting'
+    click_link 'Add new posting'
     test_posting = Posting.new({:description => "description"})
     test_posting.save
     fill_in 'description', {:with => "Strawbs"}
@@ -83,7 +82,7 @@ describe 'the surplus food path', type: :feature do
     new_user = User.create({:name => "Peter", :password => "Pan"})
     page.set_rack_session(user_id: new_user.id)
     visit '/'
-    click_link 'add new posting'
+    click_link 'Add new posting'
     test_posting = Posting.new({:description => "description"})
     test_posting.save
     fill_in 'description', {:with => "Strawbs"}
