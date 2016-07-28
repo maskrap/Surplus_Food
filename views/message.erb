@@ -8,7 +8,7 @@
     </div>
   </div>
   <hr>
-  
+
   <h3>Reply:</h3>
   <div class="reply">
     <form class="" action="/inbox/<%= @message.id %>" method="post">
@@ -16,7 +16,7 @@
     <input type="text" name="title">
     <br>
     <label for="body">Message</label>
-    <textarea class="form-control" rows="5" cols="40" placeholder="Please type message here..."></textarea>
+    <textarea name="body" class="form-control" rows="5" cols="40" placeholder="Please type message here..."></textarea>
     <button type="submit" name="button">Send</button>
     </form>
   </div>
