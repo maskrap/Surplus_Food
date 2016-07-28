@@ -35,7 +35,7 @@ body {
     align-items: center;
     font-size: 7em;
     font-family: "glaresome"; }
-  /*.header #search {
+  .header #search {
     display: flex;
     justify-content: center;
     align-self: center;
@@ -43,7 +43,7 @@ body {
     border-radius: 5px;
     opacity: .5;
     padding: 1%;
-    text-align: center; }*/
+    text-align: center; }
 
 a {
   text-decoration: none;
@@ -59,22 +59,21 @@ a {
 .nav {
   background-color: #500A0D;
   display: flex;
-  justify-content: justify;
+  justify-content: flex-end;
   padding-top: 2%;
-  padding-left: 1%;
   box-shadow: 5px 5px 5px black; }
-
-/*.navbar {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end; }*/
+  .nav .logo {
+    max-width: 140px;
+    padding-right: 62%;
+    padding-left: 4%; }
+    .nav .logo #logo-img {
+      max-width: 140px; }
 
 .nav2 {
   background-color: #500A0D;
   display: flex;
   justify-content: space-around;
   padding-top: 1%;
-  padding-bottom: .7%;
   box-shadow: 5px 5px 5px black; }
 
 li {
@@ -307,10 +306,3 @@ li {
       font-family: 'glaresome'; }
 
 /*# sourceMappingURL=styles.css.map */
-
-.logo {
-  max-width: 140px;
-  padding-right: 62%;
-  padding-left: 4%;
-
-}
