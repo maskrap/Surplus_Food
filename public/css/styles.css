@@ -23,7 +23,8 @@ html {
   box-sizing: inherit; }
 
 body {
-  background-color: #e7e5df; }
+  background-color: #e7e5df;
+  font-family: 'Raleway', sans-serif; }
 
 .header {
   background-image: url(../img/pasta.jpg);
@@ -324,5 +325,43 @@ li {
   margin-right: 25%;
   display: flex;
   justify-content: center; }
+
+.user_posting {
+  border: 1px solid;
+  padding: 1em;
+  background-color: white; }
+
+#new_posting {
+  color: black;
+  font-size: 2em; }
+
+.account-page {
+  width: 70vw; }
+  .account-page h1 {
+    text-align: center; }
+
+.name-and-pass {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 3em; }
+
+.name {
+  text-transform: capitalize; }
+  .name h2 {
+    font-size: 4em; }
+
+.account-post {
+  margin: 3em;
+  display: flex;
+  justify-content: center; }
+
+#update-pass {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  #update-pass input {
+    margin: 10px; }
 
 /*# sourceMappingURL=styles.css.map */

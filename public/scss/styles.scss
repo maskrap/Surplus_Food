@@ -13,6 +13,7 @@ $lt-text:white;
 
 body{
   background-color:#e7e5df;
+  font-family: 'Raleway', sans-serif;
 }
 .header{
   background-image: url(../img/pasta.jpg);
@@ -384,4 +385,51 @@ li{
   display:flex;
   justify-content:center;
 
+}
+
+////user/account////
+.user_posting{
+  border:1px solid;
+  padding:1em;
+  background-color:white;
+}
+#new_posting{
+  color:black;
+  font-size:2em;
+}
+.account-page{
+  width:70vw;
+  h1{
+    text-align: center;
+  }
+  form{
+
+  }
+}
+.name-and-pass{
+  display:flex;
+  flex-direction:row;
+  justify-content:space-around;
+  padding:3em;
+}
+.name{
+  text-transform: capitalize;
+  h2{
+    font-size: 4em;
+  }
+}
+.account-post{
+  margin:3em;
+  display:flex;
+  justify-content: center;
+}
+#update-pass{
+  input{
+
+    margin:10px;
+  }
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
 }
