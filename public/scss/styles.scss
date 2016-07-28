@@ -217,6 +217,72 @@ li{
   font-size: 18px;
 }
 
+//message page styling
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+  h1 {
+    font-family: 'glaresome';
+    font-size: 7em;
+  }
+  .item {
+    border-radius: 5px;
+    background: #d3d0cb;
+    height: 300px;
+    width: 500px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: space-around;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-family: 'Raleway', sans-serif;
+    strong {
+      font-size: 3em;
+      padding-right: 25px;
+      align-self: center;
+    }
+    .col1 {
+      h4 {
+        color: #335c67;
+        line-height: 30px;
+      }
+      font-size: 1em;
+      padding-left: 25px;
+      padding-top: 25px;
+      border-left: 2px solid #335c67;
+    }
+    .col2 {
+      h4 {
+        color: #335c67;
+        line-height: 30px;
+      }
+      font-style: italic;
+      font-size: 1em;
+      padding-left: 25px;
+      padding-top: 25px;
+    }
+  }
+  #message {
+  font-family: 'Raleway', sans-serif;
+  }
+  .btn-warning {
+    background: #ffb547;
+    color: $lt-text;
+  }
+  .btn-danger {
+    background: #335c67;
+    border: #335c67;
+    color: $lt-text;
+  }
+  .btn-primary {
+    background: lighten(#335c67,10%);
+    border: lighten(#335c67,10%);
+    color: $lt-text;
+  }
 /////// about us// who we are
 .who{
     border:2px solid;
@@ -224,7 +290,7 @@ li{
   h1{
     font-size: 3em;
     text-align:center;
-    font-family:'glaresome'
+    font-family:'glaresome';
   }
 }
 .who-card{
@@ -267,24 +333,24 @@ li{
   h1{
     font-size: 3em;
     text-align:center;
-    font-family:'glaresome'
-
+    font-family:'glaresome';
   }
   div{
     font-size:1.5em;
   }
-  }
+}
 
 ////about us ///what you can do
 .what{
-    border:2px solid;
-      padding:2%;
-  p{
-    font-size:1.5em;
-  }
-  h1{
-    font-size: 3em;
-    text-align:center;
-    font-family:'glaresome'
-  }
+  border:2px solid;
+    padding:2%;
+    p{
+      font-size:1.5em;
+    }
+    h1{
+      font-size: 3em;
+      text-align:center;
+      font-family:'glaresome';
+    }
+}
 }

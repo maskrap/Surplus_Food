@@ -1,39 +1,37 @@
 <div class="container">
-
-  <h1><%= @posting.description %></h1>
-    <h3>Categories:</h3>
+  <h1>SEND A MESSAGE</h1>
+  <div class="item">
+  <strong><%= @posting.description %></strong>
+    <br>
+    <div class="col1">
+    <h4>Categories:</h4>
     <% @posting.categories.each { |category| %>
-      <%= category.name %>
-      <br>
+      <em><%= category.name %></em>
     <% } %>
-    <h3>Source Type:</h3>
-    <%= @posting.source_type %>
-    <h3>Quantity:</h3>
-    <%= @posting.quantity %>
-    <h3>Location:</h3>
-    <%= @posting.location %>
-    <h3>User:</h3>
-    <%= @posting.user.name %>
-    <h3>Created at: </h3>
-    <%= @posting.created_at %>
-    <hr>
-
+    <h4>Source Type:</h4>
+    <em><%= @posting.source_type %></em>
+    <h4>Quantity:</h4>
+    <em><%= @posting.quantity %></em>
+    </div>
+    <div class="col2">
+    <h4>Location:</h4>
+    <em><%= @posting.location %></em>
+    <h4>User:</h4>
+    <em><%= @posting.user.name %></em>
+    </div>
+  </div>
   <% if session[:user_id] %>
-    <h3>Send a message to <%= @posting.user.name %></h3>
+    <h3 id="message">Send a message to <%= @posting.user.name %></h3>
     <form class="" action="/postings/<%= @posting.id%>/contact" method="post">
-    <label for="title">Title</label>
     <br>
-    <input type="text" name="title">
+    <input type="text" class="form-control" name="title" placeholder="Message title...">
     <br>
-    <label for="body">Message</label>
+    <textarea class="form-control" rows="15" cols="100" placeholder="Please type message here..."></textarea>
     <br>
-    <textarea name="body" rows="5">
-    </textarea>
-    <button type="submit" name="button">Send</button>
+    <button type="submit" class="btn btn-warning" name="button">Send</button>
     </form>
   <% end %>
   <hr>
-
   <form action="/postings/<%= @posting.id %>" method="post">
     <input name="_method" type="hidden" value="delete">
     <button class="btn btn-danger" type="submit">Delete Posting</button>
