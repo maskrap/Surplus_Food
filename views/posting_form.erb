@@ -1,47 +1,66 @@
-<h1>Add a new posting</h1>
+
 
 <div class="container">
-  <form action="/postings/form" method="post">
+  <h1>Add a new posting</h1>
+  <form class="forms-border" action="/postings/form" method="post" role="form">
+    <div class="form-group">
+      <label for="description">Item description</label>
+      <input id="description" class="form-control" name="description" type="text">
+    </div>
 
-    <label for="description">Item description</label>
-    <input id="description" name="description" type="text">
     <br>
-    <label for="category_name">Add New Category</label>
-    <input id="category_name" name="category_name" type="text" placeholder="Dairy, Meat, Fruit, etc">
+    <div class="form-group">
+      <label for="category_name">Add New Category</label>
+      <input id="category_name" class="form-control" name="category_name" type="text" placeholder="Dairy, Meat, Fruit, etc">
+    </div>
+
     <br>
-    <label for="source_type">Source Type</label>
-    <select id="source_type" name="source_type" type="text">
-      <option>Select a source</option>
-      <option>Individual</option>
-      <option>Restaurant</option>
-      <option>Brewery</option>
-      <option>Farm</option>
-      <option>General Food Business</option>
-      <option>Grocery Store</option>
-      <option>Non-Profit</option>
-    </select>
+    <div class="form-group">
+      <label for="source_type">Source Type</label>
+      <select id="source_type" class="form-control" name="source_type" type="text">
+        <option>Select a source</option>
+        <option>Individual</option>
+        <option>Restaurant</option>
+        <option>Brewery</option>
+        <option>Farm</option>
+        <option>General Food Business</option>
+        <option>Grocery Store</option>
+        <option>Non-Profit</option>
+      </select>
+    </div>
+
     <br>
-    <label for="quantity">Quantity</label>
-    <input id="quantity" name="quantity" type="text" placeholder="Serving size, grams, bunches, cups, etc">
+    <div class="form-group">
+      <label for="quantity">Quantity</label>
+      <input id="quantity" class="form-control" name="quantity" type="text" placeholder="Serving size, grams, bunches, cups, etc">
+    </div>
+
     <br>
-    <label for="location">Location</label>
-    <select id="location" name="location" type="text">
-      <option>Select a region</option>
-      <option>North Portland</option>
-      <option>Northwest Portland</option>
-      <option>Southwest Portland</option>
-      <option>Northeast Portland</option>
-      <option>Southeast Portland</option>
-    </select>
+    <div class="form-group">
+      <label for="location">Location</label>
+      <select id="location" class="form-control" name="location" type="text">
+        <option>Select a region</option>
+        <option>North Portland</option>
+        <option>Northwest Portland</option>
+        <option>Southwest Portland</option>
+        <option>Northeast Portland</option>
+        <option>Southeast Portland</option>
+      </select>
+
+    </div>
     <br>
-    <label for="city">City</label>
-    <select id="city" name="city" type="text">
-      <option>Portland</option>
-    </select>
+    <div class="form-group">
+      <label for="city">City</label>
+      <select id="city"  class="form-control" name="city" type="text">
+        <option>Portland</option>
+      </select>
+
+    </div>
     <br>
-    <button type="submit" class="btn btn-warning">Add</button>
+
+    <button id="formButton" type="submit" class="btn btn-warning">Add</button>
   </form>
 
-  <hr>
-  <span class="navigation"><a href="/">Home</a></span>
+
+
 </div>

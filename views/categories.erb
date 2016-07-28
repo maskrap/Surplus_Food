@@ -1,20 +1,29 @@
 <div class="container">
   <h1>Categories</h1>
-
+<div class="category-content">
   <% if @categories.any? %>
     <% @categories.each { |category| %>
-      <h3 id="<%= category.id %>"><%= category.name %></h3>
+      <% if category.postings.any? %>
+        <h3 id="<%= category.id %>"><%= category.name %></h3>
+      <% end %>
         <% @postings.each { |posting| %>
-          <ul>
-            <% if posting.categories.include?(category) %>
-              <li><a href='/postings/<%= posting.id %>'><%= posting.description %></a>
-              (quantity: <%= posting.quantity %>)</li>
-            <% end %>
-          </ul>
+           <% if posting.categories.include?(category) %>
+            <div class="card-container card--fixedWidth">
+              <div class="card">
+                <div class="card__description">
+                  <h2><a id="postings1" href='/postings/<%= posting.id %>'><%= posting.description %></a></h2>
+                  <div class="post-details">
+                  <h3>Location:</h3><em><%= posting.location %></em>
+                  <h3>Quantity:</h3><em><%= posting.quantity %></em>
+                  <h3>User:</h3>
+                  <em><%= posting.user.name %></em>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
         <% } %>
     <% } %>
   <% end %>
-
-  <br>
-  <a href="/">Home</a>
-<div>
+</div>
+</div>

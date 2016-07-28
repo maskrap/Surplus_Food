@@ -1,19 +1,26 @@
 <div class="container">
-  <h5><a href="/search/alphabetically/<%= @order %>"><%= @order %></a></h5>
+  <h1>All Listings</h1>
+  <h4>Change to <a id="order" href="/search/alphabetically/<%= @order %>"><%= @order %></a></h4>
+  <div class="content">
   <% if @postings.any? %>
-    <ul>
-      <% @postings.each { |posting| %>
-        <li><a href="/postings/<%= posting.id %>"><strong><%= posting.description %></strong></a>
-          (quantity: <%= posting.quantity %>)
-          <br>
-          <%= posting.location %>
-          <br>
-          Created at: <%= posting.created_at %></li>
-          <hr>
-      <% } %>
-    </ul>
+  <% @postings.each do | posting |%>
+  <div class="card-container card--fixedWidth">
+  <div class="card">
+    <div class="card__description">
+      <h2><a id="postings1" href="/postings/<%= posting.id %>">
+            <strong><%= posting.description %></strong></a>
+      </h2>
+      <div class="post-details">
+      <h3>Location:</h3><em><%= posting.location %></em>
+      <h3>Quantity:</h3><em><%= posting.quantity %></em>
+      <h3>User:</h3>
+      <em><%= posting.user.name %></em>
+      </div>
+    </div>
+  </div>
+  </div>
   <% end %>
-
+  <% end %>
   <br>
-  <a href="/">Home</a>
-<div>
+  </div>
+</div>

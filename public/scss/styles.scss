@@ -1,11 +1,19 @@
 @import "about-us";
 
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 $nav-color:#500A0D;
 $lt-text:white;
 
 
 body{
   background-color:#e7e5df;
+  font-family: 'Raleway', sans-serif;
 }
 .header{
   background-image: url(../img/pasta.jpg);
@@ -36,10 +44,7 @@ body{
     }
 }
 
-a{
-  text-decoration: none;
-  color:white;
-}
+
 @font-face{
   font-family: 'glaresome';
   src:url("../fonts/GLARESOMEregular.otf");
@@ -56,6 +61,10 @@ a{
   justify-content:flex-end;
   padding-top: 2%;
   box-shadow:  5px 5px 5px black;
+  a{
+    text-decoration: none;
+    color:white;
+  }
   .logo {
     max-width: 140px;
     padding-right: 62%;
@@ -89,6 +98,7 @@ li{
   background-color:#ffb547;
 }
 //cards/////////
+//all
 .content{
   display: flex;
   flex-direction: row;
@@ -101,73 +111,59 @@ li{
     flex-wrap: wrap;
     flex-direction: row;
     border-radius: 4px;
-    overflow: hidden;
     margin: 60px 5px 5px 5px;
     padding: 5px;
   }
   .card {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     border-radius: 4px;
-    align-items: left;
     margin: 5px;
-    padding: 0 0 15px 0;
-    width: 200px;
+    width: 300px;
+    height: 200px;
     background: #fff;
     box-shadow: 0px 3px 10px 1px rgba(0, 0, 0, 0.1);
-    transition-duration: .5s;
    &:hover {
-     cursor: pointer;
      box-shadow:7px 7px 7px gray;
-     .card__image{
-       width:100%;
-     }
    }
   }
-  .card__image {
-    position: relative;
-    width: 100%;
-    display: block;
-    max-width: 200px;
-
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    overflow: hidden;
-    transition-property: width;
-    transition-duration: .2s;
-    &:after {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      bottom: -4em;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      font-family: "FontAwesome";
-      font-size: 1em;
-      text-align: center;
-      color: rgba(255, 255, 255, 0);
-      color: #fff;
-      transition: (all .15s);
-    }
-    img {
-      display: block;
-      width: 100%;
-    }
-  }
-// .is-checked animations
-
-// random elements scss
   .card__description {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
     h2{
       font-weight: bold;
     }
-    h3{
-      font-size: 1em;
-      padding-left: 5px;
-    }
+      #postings1{
+        color: black;
+        align-self: center;
+        &:hover {
+        color: #ffb547;
+        text-decoration: none;
+        }
+      }
+      .post-details {
+        border-left: 2px solid #d3d0cb;
+        padding-left: 20px;
+        h3{
+          font-size: 1.3em;
+          line-height: 5px;
+          color: #335c67;
+        }
+      }
   }
-} //content ending bracket
+}
+//categories
+.category-content {
+  @extend .content;
+  flex-direction: column;
+}
+
+//content ending bracket
 
 /* Dropdown Button */
 .dropbtn {
@@ -238,16 +234,15 @@ li{
   }
   .item {
     border-radius: 5px;
-    background: #d3d0cb;
+    background: #fff;
     height: 300px;
-    width: 500px;
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
-    // justify-content: space-around;
     margin-top: 40px;
     margin-bottom: 40px;
     font-family: 'Raleway', sans-serif;
+    box-shadow: 0px 3px 10px 1px rgba(0, 0, 0, 0.1);
     strong {
       font-size: 3em;
       padding-right: 25px;
@@ -261,14 +256,13 @@ li{
       font-size: 1em;
       padding-left: 25px;
       padding-top: 25px;
-      border-left: 2px solid #335c67;
+      border-left: 2px solid #d3d0cb;
     }
     .col2 {
       h4 {
         color: #335c67;
         line-height: 30px;
       }
-      font-style: italic;
       font-size: 1em;
       padding-left: 25px;
       padding-top: 25px;
@@ -316,6 +310,7 @@ li{
 .me{
   display:flex;
   position:relative;
+  padding:1em;
   p{
     position:absolute;
     top:70%;
@@ -325,7 +320,6 @@ li{
     font-size: 2.5em;
     font-weight: bold;
   }
-  padding:2%;
 }
 
 .who-statement{
@@ -361,4 +355,67 @@ li{
       font-family:'glaresome';
     }
 }
+}
+////forms ///
+.forms-border{
+  border:2px solid;
+  padding:3em;
+  width:70vw;
+  display:flex;
+  flex-direction: column;
+  }
+#formButton{
+  width: 50%;
+  margin-left:25%;
+  margin-right:25%;
+  display:flex;
+  justify-content:center;
+
+}
+
+////user/account////
+.user_posting{
+  border:1px solid;
+  padding:1em;
+  background-color:white;
+}
+#new_posting{
+  color:black;
+  font-size:2em;
+}
+.account-page{
+  width:70vw;
+  h1{
+    text-align: center;
+  }
+  form{
+
+  }
+}
+.name-and-pass{
+  display:flex;
+  flex-direction:row;
+  justify-content:space-around;
+  padding:3em;
+}
+.name{
+  text-transform: capitalize;
+  h2{
+    font-size: 4em;
+  }
+}
+.account-post{
+  margin:3em;
+  display:flex;
+  justify-content: center;
+}
+#update-pass{
+  input{
+
+    margin:10px;
+  }
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
 }
