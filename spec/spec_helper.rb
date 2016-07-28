@@ -6,6 +6,7 @@ set(:root, Dir.pwd())
 Dir[File.dirname(__FILE__) + '/../lib/*.rb'].each { |file| require file }
 
 require 'capybara/rspec'
+require 'rack_session_access/capybara'
 require './app'
 Capybara.app = Sinatra::Application
 set(:show_exceptions, false)

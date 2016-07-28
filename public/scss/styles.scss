@@ -80,7 +80,7 @@ li{
   margin-bottom:1%;
   background-color:#ffb547;
 }
-
+//cards/////////
 .content{
   display: flex;
   flex-direction: row;
@@ -121,7 +121,7 @@ li{
     width: 100%;
     display: block;
     max-width: 200px;
-    height: 150px;
+
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     overflow: hidden;
@@ -148,19 +148,12 @@ li{
     }
   }
 // .is-checked animations
-  .card.is-checked {
-    .card__image {
-      &:after {
-        font-size: 2.26em;
-        bottom: 0;
-        transition: all .15s;
-        width:100%;
-      }
-    }
-  }
+
 // random elements scss
   .card__description {
-    h2,
+    h2{
+      font-weight: bold;
+    }
     h3{
       font-size: 1em;
       padding-left: 5px;
@@ -238,9 +231,12 @@ li{
   .item {
     border-radius: 5px;
     background: #d3d0cb;
+    height: 300px;
+    width: 500px;
     padding: 20px;
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    // justify-content: space-around;
     margin-top: 40px;
     margin-bottom: 40px;
     font-family: 'Raleway', sans-serif;
@@ -250,19 +246,111 @@ li{
       align-self: center;
     }
     .col1 {
-      flex-direction: column;
-      font-style: italic;
-      font-size: 1.5em;
+      h4 {
+        color: #335c67;
+        line-height: 30px;
+      }
+      font-size: 1em;
       padding-left: 25px;
+      padding-top: 25px;
       border-left: 2px solid #335c67;
     }
+    .col2 {
+      h4 {
+        color: #335c67;
+        line-height: 30px;
+      }
+      font-style: italic;
+      font-size: 1em;
+      padding-left: 25px;
+      padding-top: 25px;
+    }
+  }
+  #message {
+  font-family: 'Raleway', sans-serif;
   }
   .btn-warning {
     background: #ffb547;
     color: $lt-text;
   }
-  .btn-default {
+  .btn-danger {
     background: #335c67;
+    border: #335c67;
     color: $lt-text;
   }
+  .btn-primary {
+    background: lighten(#335c67,10%);
+    border: lighten(#335c67,10%);
+    color: $lt-text;
+  }
+/////// about us// who we are
+.who{
+    border:2px solid;
+    padding:2%;
+  h1{
+    font-size: 3em;
+    text-align:center;
+    font-family:'glaresome';
+  }
+}
+.who-card{
+  width:100%;
+  display:flex;
+  flex-flow:wrap;
+  flex-direction:row;
+  justify-content:center;
+
+  img{
+    border:2px solid;
+  }
+
+}
+.me{
+  display:flex;
+  position:relative;
+  p{
+    position:absolute;
+    top:70%;
+    left:10%;
+    color:white;
+    font-family: 'Raleway', sans-serif;
+    font-size: 2.5em;
+    font-weight: bold;
+  }
+  padding:2%;
+}
+
+.who-statement{
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.5em;
+  text-align:center;
+}
+
+////about us //food waste
+.food-waste{
+  border:2px solid;
+  padding:2%;
+  h1{
+    font-size: 3em;
+    text-align:center;
+    font-family:'glaresome';
+  }
+  div{
+    font-size:1.5em;
+  }
+}
+
+////about us ///what you can do
+.what{
+  border:2px solid;
+    padding:2%;
+    p{
+      font-size:1.5em;
+    }
+    h1{
+      font-size: 3em;
+      text-align:center;
+      font-family:'glaresome';
+    }
+}
 }

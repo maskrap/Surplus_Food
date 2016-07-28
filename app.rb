@@ -30,7 +30,7 @@ end
 
 get '/' do
   @page = "home"
-  @postings = Posting.take(4)
+  @postings = Posting.last(4)
   erb :index
 end
 
@@ -97,10 +97,29 @@ get '/postings/:id' do
   erb :posting_details
 end
 
+get '/postings/:id/edit' do
+  @user = User.find(session[:user_id])
+  @posting = Posting.find(params[:id])
+  erb :postings_edit
+end
+
+patch '/postings/:id' do
+  user_id = session[:user_id]
+  @posting = Posting.find(params[:id].to_i)
+  description = params['new_description']
+  source_type = params['new_source_type']
+  quantity = params['new_quantity']
+  location = params['new_location']
+  @posting.update({description: description, source_type: source_type, quantity: quantity, location: location})
+  redirect "/postings/#{@posting.id}"
+end
+
+
 post '/postings/:id/contact', :auth => :user do
   post = Posting.find(params[:id])
   new_message = post.messages.create({:subject => params[:title], :body => params[:body]})
   new_message.send_message(User.find(session[:user_id]), post.user)
+  flash[:alert] = "Message Sent"
   redirect back
 end
 
@@ -159,13 +178,14 @@ patch '/user/edit', :auth => :user do
   if params[:password] == params[:password_confirm]
     user.update({:password => params[:password]})
     flash[:alert] = "Password successfully changed!"
+    redirect to "/"
   else
     flash[:notice] = "Passwords do not match."
   end
-  redirect to "/users"
+  redirect to "/user"
 end
 
-post '/users/new' do
+post '/user/new' do
   new_user = User.new(name: params[:email], password: params[:password])
   if new_user.save
     session[:user_id] = new_user.id
@@ -193,6 +213,12 @@ post '/inbox/:id', :auth => :user do
   new_message = post.messages.create({:subject => params[:title], :body => params[:body]})
   new_message.send_message(User.find(session[:user_id]), msg.sender)
   redirect to '/inbox'
+end
+
+delete '/inbox/:id', :auth => :user do
+  msg = Message.find(params[:id])
+  msg.destroy ? flash[:alert] = "Message Deleted" : flash[:notice] = "Unable to delete message."
+  redirect to "/inbox"
 end
 
 get '/logout' do

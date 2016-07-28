@@ -118,7 +118,6 @@ li {
     width: 100%;
     display: block;
     max-width: 200px;
-    height: 150px;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     overflow: hidden;
@@ -141,12 +140,8 @@ li {
     .content .card__image img {
       display: block;
       width: 100%; }
-  .content .card.is-checked .card__image:after {
-    font-size: 2.26em;
-    bottom: 0;
-    transition: all .15s;
-    width: 100%; }
-  .content .card__description h2,
+  .content .card__description h2 {
+    font-weight: bold; }
   .content .card__description h3 {
     font-size: 1em;
     padding-left: 5px; }
@@ -213,9 +208,11 @@ li {
   .container .item {
     border-radius: 5px;
     background: #d3d0cb;
+    height: 300px;
+    width: 500px;
     padding: 20px;
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
     margin-top: 40px;
     margin-bottom: 40px;
     font-family: 'Raleway', sans-serif; }
@@ -224,16 +221,82 @@ li {
       padding-right: 25px;
       align-self: center; }
     .container .item .col1 {
-      flex-direction: column;
-      font-style: italic;
-      font-size: 1.5em;
+      font-size: 1em;
       padding-left: 25px;
+      padding-top: 25px;
       border-left: 2px solid #335c67; }
+      .container .item .col1 h4 {
+        color: #335c67;
+        line-height: 30px; }
+    .container .item .col2 {
+      font-style: italic;
+      font-size: 1em;
+      padding-left: 25px;
+      padding-top: 25px; }
+      .container .item .col2 h4 {
+        color: #335c67;
+        line-height: 30px; }
+  .container #message {
+    font-family: 'Raleway', sans-serif; }
   .container .btn-warning {
     background: #ffb547;
     color: white; }
-  .container .btn-default {
+  .container .btn-danger {
     background: #335c67;
+    border: #335c67;
     color: white; }
+  .container .btn-primary {
+    background: #447a89;
+    border: #447a89;
+    color: white; }
+  .container .who {
+    border: 2px solid;
+    padding: 2%; }
+    .container .who h1 {
+      font-size: 3em;
+      text-align: center;
+      font-family: 'glaresome'; }
+  .container .who-card {
+    width: 100%;
+    display: flex;
+    flex-flow: wrap;
+    flex-direction: row;
+    justify-content: center; }
+    .container .who-card img {
+      border: 2px solid; }
+  .container .me {
+    display: flex;
+    position: relative;
+    padding: 2%; }
+    .container .me p {
+      position: absolute;
+      top: 70%;
+      left: 10%;
+      color: white;
+      font-family: 'Raleway', sans-serif;
+      font-size: 2.5em;
+      font-weight: bold; }
+  .container .who-statement {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.5em;
+    text-align: center; }
+  .container .food-waste {
+    border: 2px solid;
+    padding: 2%; }
+    .container .food-waste h1 {
+      font-size: 3em;
+      text-align: center;
+      font-family: 'glaresome'; }
+    .container .food-waste div {
+      font-size: 1.5em; }
+  .container .what {
+    border: 2px solid;
+    padding: 2%; }
+    .container .what p {
+      font-size: 1.5em; }
+    .container .what h1 {
+      font-size: 3em;
+      text-align: center;
+      font-family: 'glaresome'; }
 
 /*# sourceMappingURL=styles.css.map */

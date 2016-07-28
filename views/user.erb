@@ -1,15 +1,27 @@
-<div>
-  <h1><%= @user.name %></h1>
-
-  <a class='btn btn-success' href='/new'>List a new posting</a>
-  <a class='btn btn-success' href='/'>Home</a>
-
-  <form action="/user/edit" method="post">
-    <div class="form-group">
-      <input type="hidden" name="_method" value="patch" >
-      <input class="form-control" type="password" name="password" placeholder="New Password">
-      <input class="form-control" type="password" name="password_confirm" placeholder="Confirm New">
-      <button class="btn btn-primary" type="submit" name="button">Update Password</button>
-    </div>
+<h2>User: <%= @user.name %></h2>
+<form action="/user/edit" method="post">
+  <div class="form-group">
+    <input type="hidden" name="_method" value="patch" >
+    <input class="form-control" type="password" name="password" placeholder="New Password">
+    <input class="form-control" type="password" name="password_confirm" placeholder="Confirm New">
+    <button class="btn btn-primary" type="submit" name="button">Update Password</button>
+  </div>
   </form>
+  <hr>
+  <a class='btn btn-success' href='/new'>List a new posting</a>
+  <a class='btn btn-info' href='/'>Home</a>
+  <hr>
+  <div class="user_posting">
+    <h3>My Postings:</h3>
+    <% if @user.postings.any? %>
+      <ol>
+        <% @user.postings.each { |posting|  %>
+          <li><a href="/postings/<%=posting.id %>"><strong><%= posting.description%></strong></a></li>
+          <hr>
+          <% } %>
+      </ol>
+      <% else %>
+        <h3>No postings at this time.</h3>
+      <% end %>
+  </div >
 </div>
