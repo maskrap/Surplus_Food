@@ -78,6 +78,7 @@ body {
   display: flex;
   justify-content: space-around;
   padding-top: 1%;
+  padding-bottom: .7%;
   box-shadow: 5px 5px 5px black; }
 
 li {
@@ -262,3 +263,10 @@ li {
     font-family: "glaresome"; }
 
 /*# sourceMappingURL=styles.css.map */
+
+.logo {
+  max-width: 140px;
+  padding-right: 62%;
+  padding-left: 4%;
+
+}
