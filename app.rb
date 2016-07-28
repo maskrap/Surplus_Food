@@ -37,6 +37,7 @@ end
 get '/aboutus' do
   erb :aboutus
 end
+
 get '/foodwaste' do
   erb :foodwaste
 end
