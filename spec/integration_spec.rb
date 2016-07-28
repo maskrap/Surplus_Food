@@ -22,6 +22,25 @@ describe 'the surplus food path', type: :feature do
     expect(page).to have_content('PDX')
   end
 
+  it 'allows user to search postings by location' do
+    visit '/'
+    click_link 'Login'
+    new_user = User.create({:name => "Peter", :password => "Pan"})
+    page.set_rack_session(user_id: new_user.id)
+    visit '/'
+    click_link 'Add new posting'
+    test_posting = Posting.new({:description => "description"})
+    test_posting.save
+    fill_in 'description', {:with => "Strawbs"}
+    fill_in 'category_name', {:with => "Fruit"}
+    select 'Individual', :from => "source_type"
+    fill_in 'quantity', {:with => "1 bushel"}
+    select 'Northeast Portland', :from => "location"
+    click_button 'Add'
+    visit '/'
+    click_link 'Location'
+    expect(page).to have_content('Northeast Portland')
+  end
 
   it 'allows user to update password' do
     visit '/'
@@ -42,7 +61,7 @@ describe 'the surplus food path', type: :feature do
     new_user = User.create({:name => "Peter", :password => "Pan"})
     page.set_rack_session(user_id: new_user.id)
     visit '/'
-    click_link 'add new posting'
+    click_link 'Add new posting'
     test_posting = Posting.new({:description => "description"})
     test_posting.save
     fill_in 'description', {:with => "Strawbs"}
@@ -60,7 +79,7 @@ describe 'the surplus food path', type: :feature do
     new_user = User.create({:name => "Peter", :password => "Pan"})
     page.set_rack_session(user_id: new_user.id)
     visit '/'
-    click_link 'add new posting'
+    click_link 'Add new posting'
     test_posting = Posting.new({:description => "description"})
     test_posting.save
     fill_in 'description', {:with => "Strawbs"}
@@ -83,7 +102,7 @@ describe 'the surplus food path', type: :feature do
     new_user = User.create({:name => "Peter", :password => "Pan"})
     page.set_rack_session(user_id: new_user.id)
     visit '/'
-    click_link 'add new posting'
+    click_link 'Add new posting'
     test_posting = Posting.new({:description => "description"})
     test_posting.save
     fill_in 'description', {:with => "Strawbs"}
