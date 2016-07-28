@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20160727164409) do
 
   create_table "categories_postings", force: :cascade do |t|
     t.integer "category_id"
-    t.string  "posting_id"
+    t.integer "posting_id"
   end
 
   create_table "messages", force: :cascade do |t|
