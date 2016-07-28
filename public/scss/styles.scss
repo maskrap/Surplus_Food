@@ -90,6 +90,7 @@ li{
   background-color:#ffb547;
 }
 //cards/////////
+//all
 .content{
   display: flex;
   flex-direction: row;
@@ -140,7 +141,6 @@ li{
       .post-details {
         border-left: 2px solid #d3d0cb;
         padding-left: 20px;
-
         h3{
           font-size: 1.3em;
           line-height: 5px;
@@ -149,13 +149,12 @@ li{
       }
   }
 }
-#order{
-  color: black;
-  &:hover {
-  color: #ffb547;
-  text-decoration: none;
-  }
+//categories
+.category-content {
+  @extend .content;
+  flex-direction: column;
 }
+
 //content ending bracket
 
 /* Dropdown Button */
@@ -229,7 +228,6 @@ li{
     border-radius: 5px;
     background: #fff;
     height: 300px;
-    width: 500px;
     padding: 20px;
     display: flex;
     flex-wrap: wrap;

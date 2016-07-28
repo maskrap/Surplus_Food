@@ -87,21 +87,21 @@ li {
   margin-bottom: 1%;
   background-color: #ffb547; }
 
-.content {
+.content, .category-content {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
   font-family: 'Raleway', sans-serif; }
-  .content .card-container {
+  .content .card-container, .category-content .card-container {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     border-radius: 4px;
     margin: 60px 5px 5px 5px;
     padding: 5px; }
-  .content .card {
+  .content .card, .category-content .card {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -111,36 +111,33 @@ li {
     height: 200px;
     background: #fff;
     box-shadow: 0px 3px 10px 1px rgba(0, 0, 0, 0.1); }
-    .content .card:hover {
+    .content .card:hover, .category-content .card:hover {
       box-shadow: 7px 7px 7px gray; }
-  .content .card__description {
+  .content .card__description, .category-content .card__description {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     padding: 10px; }
-    .content .card__description h2 {
+    .content .card__description h2, .category-content .card__description h2 {
       font-weight: bold; }
-    .content .card__description #postings1 {
+    .content .card__description #postings1, .category-content .card__description #postings1 {
       color: black;
       align-self: center; }
-      .content .card__description #postings1:hover {
+      .content .card__description #postings1:hover, .category-content .card__description #postings1:hover {
         color: #ffb547;
         text-decoration: none; }
-    .content .card__description .post-details {
+    .content .card__description .post-details, .category-content .card__description .post-details {
       border-left: 2px solid #d3d0cb;
       padding-left: 20px; }
-      .content .card__description .post-details h3 {
+      .content .card__description .post-details h3, .category-content .card__description .post-details h3 {
         font-size: 1.3em;
         line-height: 5px;
         color: #335c67; }
 
-#order {
-  color: black; }
-  #order:hover {
-    color: #ffb547;
-    text-decoration: none; }
+.category-content {
+  flex-direction: column; }
 
 /* Dropdown Button */
 .dropbtn {
@@ -205,7 +202,6 @@ li {
     border-radius: 5px;
     background: #fff;
     height: 300px;
-    width: 500px;
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
