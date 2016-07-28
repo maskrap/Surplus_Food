@@ -28,6 +28,7 @@ See spec folder
 * Sinatra
 * Pry
 * CSS
+* SCSS
 
 
 ## Setup/Installation Requirements
