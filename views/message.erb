@@ -1,12 +1,15 @@
 <div class="container">
   <div class="message">
     <div class="msg-subject">
-      <%= @message.subject %>
+    Subject: <%= @message.subject %>
     </div>
     <div class="msg-body">
-      <%= @message.body %>
+    Message: <%= @message.body %>
     </div>
   </div>
+  <hr>
+  
+  <h3>Reply:</h3>
   <div class="reply">
     <form class="" action="/inbox/<%= @message.id %>" method="post">
     <label for="title">Title</label>
