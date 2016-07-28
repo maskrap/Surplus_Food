@@ -111,11 +111,15 @@ patch '/postings/:id' do
   source_type = params['new_source_type']
   quantity = params['new_quantity']
   location = params['new_location']
-  if source_type != "" || location != ""
-    @posting.update({description: description, source_type: source_type, quantity: quantity, location: location})
+  if @user == @posting.user
+    if source_type != "" || location != ""
+      @posting.update({description: description, source_type: source_type, quantity: quantity, location: location})
+    else
+      flash[:notice] = "Please fill out all fields."
+      redirect back
+    end
   else
-    flash[:notice] = "Please fill out all fields."
-    redirect back
+    flash[:notice] = "Only the original poster can update this listing."
   end
   redirect "/postings/#{@posting.id}"
 end
