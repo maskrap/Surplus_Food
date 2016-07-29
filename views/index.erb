@@ -6,23 +6,25 @@
   <div class="content">
     <% if @postings.any? %>
       <% @postings.each do | posting |%>
-        <div class="card-container card--fixedWidth">
-          <div class="card">
-            <div class="card__description">
-              <a id="postings1" href="/postings/<%= posting.id %>">
-              <h2><%= posting.description %></h2></a>
-              <div class="post-details">
-                <h3>Location:</h3>
-                <em><%= posting.location %></em>
-                <h3>Quantity:</h3>
-                <em><%= posting.quantity %></em>
-                <h3>User:</h3>
-                <em><%= posting.user.name %></em>
-              </div>
+      <div class="card-container card--fixedWidth">
+        <div class="card">
+          <div class="card__description">
+            <a id="postings1" href="/postings/<%= posting.id %>">
+            <h2><%= posting.description %></h2></a>
+            <div class="post-details">
+              <h3>Location:</h3>
+              <em><%= posting.location %></em>
+              <h3>Quantity:</h3>
+              <em><%= posting.quantity %></em>
+              <h3>User:</h3>
+              <em><%= posting.user.name %></em>
             </div>
           </div>
         </div>
+      </div>
       <% end %>
-    <% end %>
+      <% end %>
+  </div>
+</div>
   </div>
 </div>

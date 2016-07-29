@@ -1,17 +1,51 @@
-<h3>In:</h3>
-<table class="table">
-  <thead>
-    <tr>
-      <th>From</th>
-      <th>Subject</th>
-      <!-- <th>Posting</th> -->
-      <th>Date</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% if @user.messages.received.any? %>
-        <% @user.messages.received.each do | message | %>
+<div class="container">
+  <h1>Message Center</h1>
+  <h2 class="inbox">Inbox</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>From</th>
+        <th>Subject</th>
+        <!-- <th>Posting</th> -->
+        <th>Date</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @user.messages.received.any? %>
+          <% @user.messages.received.each do | message | %>
+          <tr>
+            <td><%= message.sender.name %></a></td>
+            <td><a href="/inbox/<%= message.id %>"><%= message.subject %></a></td>
+
+            <td><%= message.created_at %></td>
+            <td>
+              <form action="/inbox/<%= message.id %>" method="post">
+
+                <input type="hidden" name="_method" value="delete">
+                <button class="btn btn-danger" type="submit" name="button">Delete</button>
+              </form>
+            </td>
+          </tr>
+          <% end %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <h2 class="inbox">Sent</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>From</th>
+        <th>Subject</th>
+        <!-- <th>Posting</th> -->
+        <th>Date</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @user.messages.sent.any? %>
+        <% @user.messages.sent.each do | message | %>
         <tr>
           <td><%= message.sender.name %></a></td>
           <td><a href="/inbox/<%= message.id %>"><%= message.subject %></a></td>
@@ -19,44 +53,13 @@
           <td><%= message.created_at %></td>
           <td>
             <form action="/inbox/<%= message.id %>" method="post">
-
               <input type="hidden" name="_method" value="delete">
               <button class="btn btn-danger" type="submit" name="button">Delete</button>
             </form>
           </td>
         </tr>
         <% end %>
-    <% end %>
-  </tbody>
-</table>
-
-<h3>Out:</h3>
-<table class="table">
-  <thead>
-    <tr>
-      <th>From</th>
-      <th>Subject</th>
-      <!-- <th>Posting</th> -->
-      <th>Date</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% if @user.messages.sent.any? %>
-      <% @user.messages.sent.each do | message | %>
-      <tr>
-        <td><%= message.sender.name %></a></td>
-        <td><a href="/inbox/<%= message.id %>"><%= message.subject %></a></td>
-
-        <td><%= message.created_at %></td>
-        <td>
-          <form action="/inbox/<%= message.id %>" method="post">
-            <input type="hidden" name="_method" value="delete">
-            <button class="btn btn-danger" type="submit" name="button">Delete</button>
-          </form>
-        </td>
-      </tr>
       <% end %>
-    <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>

@@ -30,9 +30,9 @@
       </ul>
     </div>
     <% if session[:user_id] %>
-      <a class="btn btn-warning" href="/new">Add new posting</a>
+      <a id="postbtn" class="btn btn-warning" href="/new">Add new posting</a>
     <% else %>
-      <a class="btn btn-warning" href="/signup">Create an account!</a>
+      <a id="postbtn" class="btn btn-warning" href="/signup">Create an account!</a>
     <% end %>
   </div>
 </div>

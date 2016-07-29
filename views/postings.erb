@@ -1,31 +1,25 @@
 <div class="container">
-
-  <h3>All postings</h3>
+  <h1>All postings</h1>
   <% if @postings.any? %>
-    <ul>
+    <div class="content">
       <% @postings.each { |posting| %>
-        <li><a href="/postings/<%= posting.id %>"><strong><%= posting.description %></strong></a>
-          <br>
-          Categories: <% posting.categories.each { |category| %>
-            <a href="/search/category#<%= category.id %>"><%= category.name %></a>
-            <% } %>
-          <br>
-          Source Type: <%= posting.source_type %>
-          <br>
-          Quantity: <%= posting.quantity %>
-          <br>
-          Location: <%= posting.location %>
-          <br>
-          User: <%= posting.user.name %>
-          <br>
-          Created at: <%= posting.created_at %></li>
-          <br>
-          <a href="/postings/<%= posting.id %>">Details</a>
-          <hr>
-          </li>
+        <div class="card-container card--fixedWidth">
+          <div class="all-card">
+            <div class="card__description">
+              <h2><a id="postings1" href="/postings/<%= posting.id %>"><%= posting.description %></a></h2>
+                <div class="post-details">
+                  <h3>Categories:</h3><% posting.categories.each { |category| %>
+                  <h3><a href="/search/category#<%= category.id %>"><em><%= category.name %></em></a></h3>
+                  <% } %>
+                  <h3>Source Type:</h3><em><%= posting.source_type %></em>
+                  <h3>Quantity:</h3><em><%= posting.quantity %></em>
+                  <h3>Location:</h3><em><%= posting.location %></em>
+                  <h3>User:</h3><em><%= posting.user.name %></em>
+                </div>
+            </div>
+          </div>
+        </div>
       <% } %>
-    </ul>
   <% end %>
-
-  <a href="/">Home</a>
-<div>
+    </div>
+</div>

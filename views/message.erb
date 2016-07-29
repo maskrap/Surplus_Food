@@ -1,23 +1,24 @@
 <div class="container">
   <div class="message">
     <div class="msg-subject">
-    Subject: <%= @message.subject %>
+      <h3 id="message">Subject:</h3>
+      <p><%= @message.subject %></p>
     </div>
     <div class="msg-body">
-    Message: <%= @message.body %>
+      <h3 id="message">Message:</h3>
+      <p><%= @message.body %></p>
     </div>
   </div>
   <hr>
 
-  <h3>Reply:</h3>
   <div class="reply">
+    <h3 id="message">Reply</h3>
     <form class="" action="/inbox/<%= @message.id %>" method="post">
-    <label for="title">Title</label>
-    <input type="text" name="title">
+    <input type="text" class="form-control" name="title" placeholder="Message title...">
     <br>
-    <label for="body">Message</label>
-    <textarea name="body" class="form-control" rows="5" cols="40" placeholder="Please type message here..."></textarea>
-    <button type="submit" name="button">Send</button>
+    <textarea class="form-control" rows="15" cols="100" name="body" placeholder="Please type message here..."></textarea>
+    <br>
+    <button type="submit" class="btn btn-warning" name="button">Send</button>
     </form>
   </div>
 </div>
