@@ -40,8 +40,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 7em;
-    font-family: "glaresome"; }
+    font-family: 'glaresome';
+    font-size: 4em; }
+    @media only screen and (min-width: 630px) {
+      .header h1, .header h2 {
+        font-size: 7em; } }
   .header #search {
     display: flex;
     justify-content: center;
@@ -63,21 +66,61 @@ a {
   margin: 0;
   font-family: 'Raleway', sans-serif; }
 
+@media screen only and (min-width: 640px) {
+  .navbar .glyphicon-align-justify {
+    display: block; } }
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  display: none; }
+
+.ham {
+  width: 30px;
+  height: 5px;
+  background: white;
+  margin: 3px; }
+
 .nav {
   background-color: #ff403d;
   display: flex;
   justify-content: flex-end;
   padding-top: 1%; }
-  .nav a {
-    text-decoration: none;
-    color: white; }
-  .nav .logo {
-    max-width: 140px;
-    padding-right: 62%;
-    padding-left: 4%;
-    padding-bottom: 1%; }
-    .nav .logo #logo-img {
-      max-width: 140px; }
+
+@media screen and (max-width: 1086px) {
+  .nav-ul {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    background: rgba(255, 255, 255, 0.5);
+    display: none;
+    margin-right: 15px; }
+    .nav-ul li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 5px;
+      padding-right: 35px; }
+      .nav-ul li button {
+        background: rgba(255, 255, 255, 0.5);
+        color: black; }
+      .nav-ul li a {
+        color: black; }
+
+  .hamburger {
+    display: block;
+    padding: 20px; } }
+a {
+  text-decoration: none;
+  color: white; }
+
+.logo {
+  max-width: 140px;
+  padding-right: 62%;
+  padding-left: 4%;
+  padding-bottom: 1%; }
+  .logo #logo-img {
+    max-width: 140px; }
 
 .nav2 {
   background-color: #ff403d;
@@ -85,6 +128,10 @@ a {
   justify-content: space-around;
   padding-top: 1%;
   padding-bottom: 1%; }
+  .nav2 .btn-warning {
+    background: #5fb7b7;
+    border: #5fb7b7;
+    color: white; }
 
 li {
   display: inline;
@@ -175,8 +222,7 @@ li {
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
   position: relative;
-  display: inline-block;
-  transition: all 1s; }
+  display: inline-block; }
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
@@ -258,12 +304,6 @@ li {
         line-height: 30px; }
   .container #message {
     font-family: 'Raleway', sans-serif; }
-  .container .btn-warning {
-    background: #5fb7b7;
-    color: white; }
-  .container #postbtn {
-    background-color: #5fb7b7;
-    color: white; }
   .container .btn-danger {
     background: #5fb7b7;
     border: #5fb7b7;
