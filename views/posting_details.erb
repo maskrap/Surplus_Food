@@ -26,15 +26,17 @@
     <br>
     <input type="text" class="form-control" name="title" placeholder="Message title...">
     <br>
-    <textarea class="form-control" rows="15" cols="100" placeholder="Please type message here..."></textarea>
+    <textarea class="form-control" rows="15" cols="100" name="body" placeholder="Please type message here..."></textarea>
     <br>
     <button type="submit" class="btn btn-warning" name="button">Send</button>
     </form>
-  <% end %>
+  <% if session[:user_id] == @posting.user.id %>
   <hr>
   <form action="/postings/<%= @posting.id %>" method="post">
     <input name="_method" type="hidden" value="delete">
     <button class="btn btn-danger" type="submit">Delete Posting</button>
     <a href="/postings/<%= @posting.id %>/edit" class="btn btn-primary">Update Posting</a>
   </form>
+  <% end %>
+  <% end %>
 <div>
