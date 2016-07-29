@@ -7,12 +7,12 @@ html {
   box-sizing: inherit;
 }
 
-$nav-color:#500A0D;
+$nav-color:#ff403d;
 $lt-text:white;
 
 
 body{
-  background-color:#e7e5df;
+  background-color:#fff4ec;
   font-family: 'Raleway', sans-serif;
 }
 .header{
@@ -44,7 +44,10 @@ body{
     }
 }
 
-
+a{
+  text-decoration: none;
+  color:black;
+}
 @font-face{
   font-family: 'glaresome';
   src:url("../fonts/GLARESOMEregular.otf");
@@ -59,8 +62,8 @@ body{
   background-color: $nav-color;
   display:flex;
   justify-content:flex-end;
-  padding-top: 2%;
-  box-shadow:  5px 5px 5px black;
+  padding-top: 1%;
+
   a{
     text-decoration: none;
     color:white;
@@ -69,6 +72,7 @@ body{
     max-width: 140px;
     padding-right: 62%;
     padding-left: 4%;
+    padding-bottom: 1%;
     #logo-img {
       max-width: 140px;
     }
@@ -80,7 +84,8 @@ body{
   display:flex;
   justify-content:space-around;
   padding-top: 1%;
-  box-shadow:  5px 5px 5px black;
+  padding-bottom: 1%;
+
 }
 
 
@@ -127,6 +132,20 @@ li{
    &:hover {
      box-shadow:7px 7px 7px gray;
    }
+ }
+   .all-card {
+     display: flex;
+     flex-direction: row;
+     flex-wrap: wrap;
+     border-radius: 4px;
+     margin: 5px;
+     width: 400px;
+     height: 300px;
+     background: #fff;
+     box-shadow: 0px 3px 10px 1px rgba(0, 0, 0, 0.1);
+    &:hover {
+      box-shadow:7px 7px 7px gray;
+    }
   }
   .card__description {
     display: flex;
@@ -141,6 +160,7 @@ li{
       #postings1{
         color: black;
         align-self: center;
+        padding-right: 20px;
         &:hover {
         color: #ffb547;
         text-decoration: none;
@@ -167,7 +187,7 @@ li{
 
 /* Dropdown Button */
 .dropbtn {
-    background-color: #500A0D;
+    background-color: #ff403d;
     color: #f1f1f1;
     padding: 16px;
     font-size: 16px;
@@ -179,6 +199,7 @@ li{
 .dropdown {
     position: relative;
     display: inline-block;
+    transition:all 1s;
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -188,6 +209,7 @@ li{
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    transition:all 1s;
 }
 
 /* Links inside the dropdown */
@@ -199,11 +221,14 @@ li{
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown-content a:hover {
+  transition:all 1s;
+  background-color: #f1f1f1}
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
     display: block;
+    transition:all 1s;
 }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
@@ -272,17 +297,21 @@ li{
   font-family: 'Raleway', sans-serif;
   }
   .btn-warning {
-    background: #ffb547;
+    background: #5fb7b7;
+    color: $lt-text;
+  }
+  #postbtn {
+    background-color: #5fb7b7;
     color: $lt-text;
   }
   .btn-danger {
-    background: #335c67;
-    border: #335c67;
+    background: #5fb7b7;
+    border: #5fb7b7;
     color: $lt-text;
   }
   .btn-primary {
-    background: lighten(#335c67,10%);
-    border: lighten(#335c67,10%);
+    background: lighten(#5fb7b7,10%);
+    border: lighten(#5fb7b7,10%);
     color: $lt-text;
   }
 /////// about us// who we are
@@ -418,4 +447,15 @@ li{
   flex-direction:column;
   justify-content:center;
   align-items:center;
+}
+
+//Inbox
+.inbox {
+  font-size: 2em;
+  padding: 10px 10px;
+  margin: 30px 0;
+  border: 1px solid black;
+}
+.btn-danger {
+  background: #ff403d;
 }
