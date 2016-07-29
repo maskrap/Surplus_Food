@@ -2,19 +2,28 @@
   <div class="nav">
     <div class="logo"><a href="/"><img id="logo-img" src="/img/logo.png" alt="logo image" /></a></div>
     <div class="navbar">
-      <ul>
-        <li><div class="dropdown">
-          <button class="dropbtn">About Us</button>
-          <div class="dropdown-content">
-            <a href="/aboutus">Who We Are</a>
-            <a href="/foodwaste">Food Waste</a>
-            <a href="/what_you_can_do">What You Can Do</a>
+      <!-- <span class="glyphicon glyphicon-align-justify" aria-hidden="true"> -->
+      <div class="hamburger">
+        <div class="ham"></div>
+        <div class="ham"></div>
+        <div class="ham"></div>
+      </div>
+      <ul class="nav-ul">
+        <li>
+          <div class="dropdown">
+            <button class="dropbtn">About Us</button>
+              <div class="dropdown-content">
+                <a href="/aboutus">Who We Are</a>
+                <a href="/foodwaste">Food Waste</a>
+                <a href="/what_you_can_do">What You Can Do</a>
+              </div>
           </div>
-        </div></li>
+        </li>
         <li><a href="/user">Account</a></li>
         <li><a href="/inbox">Inbox</a></li>
         <li><% if session[:user_id] %><a href="/logout">Logout</a><% else %><a href="/login">Login</a><% end %></li>
       </ul>
+      </span>
     </div>
   </div>
 
